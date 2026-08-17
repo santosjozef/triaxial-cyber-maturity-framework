@@ -181,11 +181,13 @@ The framework operationalizes, among others, the following models cited in the o
 - **17 human factors in cybersecurity** (Rohan et al., 2021) — underpin the criteria of the Psychological prism.
 - **NIST SP 800-53 Rev. 5** and **LGPD (Law No. 13.709/2018)** — underpin the fourth, Governance prism.
 
-## ⚠️ Limitations (v1.0)
+## 🔬 Scientific Rigor, Scope, and Future Work (v1.0)
 
-- The instrument has **not yet undergone external validation**; its weights reflect the authors' synthesis and should be treated as a first approximation.
-- Predominantly Western scope of the underlying literature.
-- Absence of longitudinal causality studies.
+This framework was designed through a rigorous methodological synthesis of the human-factors-in-cybersecurity literature. As an Open Science project in its initial version (v1.0), its scope of application is bounded by the following academic parameters, which are already being addressed on our research roadmap:
+
+1. **Weight Validation and Calibration**: The current assignment of weights ($w_i$) reflects the authors' qualitative and theoretical synthesis based on the reviewed literature. Large-scale empirical testing and expert panels (Delphi Method) are planned to refine and statistically calibrate these coefficients.
+2. **Literature Representativeness**: The framework's conceptual foundation prioritized high-relevance, indexed international journals and conferences (predominantly Western in scope). Future expansions will map the cultural and behavioral nuances specific to critical infrastructure in the Global South.
+3. **Causality Analysis**: The current instrument provides a point-in-time snapshot of maturity. Future longitudinal studies are needed to establish long-term causal correlations between the evolution of the Overall Maturity Index ($I_{mat}$) and the reduction of real incidents.
 
 ## 📌 Citing This Work / Long-Term Archival
 

@@ -183,11 +183,13 @@ O framework opera­cionaliza, entre outros, os seguintes modelos citados no arti
 - **17 fatores humanos em cibersegurança** (Rohan et al., 2021) — fundamentam os critérios do prisma Psicológico.
 - **NIST SP 800-53 Rev. 5** e **LGPD (Lei nº 13.709/2018)** — fundamentam o quarto prisma de Governança.
 
-## ⚠️ Limitações (v1.0)
+## 🔬 Rigor Científico, Escopo e Trabalhos Futuros (v1.0)
 
-- O instrumento ainda **não passou por validação externa**; os pesos refletem a síntese dos autores e devem ser tratados como uma primeira aproximação.
-- Escopo de literatura predominantemente ocidental.
-- Ausência de estudos longitudinais de causalidade.
+Este framework foi projetado seguindo um processo metodológico rigoroso de síntese da literatura de fatores humanos em cibersegurança. Como um projeto científico de código aberto (Open Science) em sua versão inicial (v1.0), seu escopo de aplicação está delimitado pelos seguintes parâmetros acadêmicos, os quais já estão sendo endereçados em nosso roadmap de pesquisa:
+
+1. **Validação e Calibração de Pesos**: A atribuição atual de pesos ($w_i$) reflete a síntese qualitativa e teórica dos autores baseada na literatura revisada. Testes empíricos em larga escala e painéis de especialistas (Método Delphi) estão planejados para refinamento e calibração estatística desses coeficientes.
+2. **Representatividade da Literatura**: A base conceitual do framework priorizou periódicos e conferências internacionais indexadas de alta relevância (predominantemente de escopo ocidental). Expansões futuras mapearão nuances culturais e comportamentais específicas de infraestruturas críticas do Sul Global.
+3. **Análise de Causalidade**: O instrumento atual fornece um diagnóstico fotográfico (ponto no tempo) da maturidade. Estudos longitudinais futuros são necessários para estabelecer correlações causais de longo prazo entre a evolução do Índice Geral de Maturidade ($I_{mat}$) e a redução de incidentes reais.
 
 ## 📌 Citação e Preservação de Longo Prazo
 
