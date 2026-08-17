@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="Segoe UI, Arial, sans-serif">
-  <rect x="0" y="0" width="960" height="560" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="960" height="620" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
   <rect x="0" y="0" width="960" height="64" fill="#111827"/>
   <text x="30" y="30" font-size="20" font-weight="800" fill="#FFFFFF">TRIAXIAL CYBERSECURITY MATURITY FRAMEWORK</text>
   <text x="30" y="50" font-size="12.5" fill="#9CA3AF">Human Factors, Organizational Culture, and Secure Systems Usability (UCD/HC3)</text>
@@ -12,53 +12,53 @@
   <!-- KPI Card 2 -->
   <rect x="345" y="86" width="300" height="110" rx="10" fill="#ECFDF5" stroke="#A7F3D0"/>
   <text x="365" y="112" font-size="12" font-weight="700" fill="#059669" letter-spacing="0.5">MATURITY CATEGORY</text>
-  <text x="365" y="160" font-size="27" font-weight="800" fill="#047857">Proactive / Managed</text>
+  <text x="365" y="158" font-size="26" font-weight="800" fill="#047857">Proactive / Managed</text>
 
-  <!-- Legend badge card -->
+  <!-- Badge card -->
   <rect x="660" y="86" width="270" height="110" rx="10" fill="#FFF7ED" stroke="#FED7AA"/>
   <text x="680" y="112" font-size="12" font-weight="700" fill="#C2410C" letter-spacing="0.5">v1.0</text>
-  <text x="680" y="140" font-size="13" fill="#9A3412">16 criteria · 4 prisms</text>
-  <text x="680" y="160" font-size="13" fill="#9A3412">1–5 scale</text>
-  <text x="680" y="180" font-size="13" fill="#9A3412">NIST SP 800-53 · LGPD</text>
+  <text x="680" y="138" font-size="12.5" fill="#9A3412">16 criteria · 4 prisms</text>
+  <text x="680" y="158" font-size="12.5" fill="#9A3412">1–5 scale</text>
+  <text x="680" y="178" font-size="12.5" fill="#9A3412">NIST 800-53 · LGPD</text>
 
   <!-- Chart section -->
-  <text x="30" y="232" font-size="13.5" font-weight="700" fill="#111827" letter-spacing="0.5">PERFORMANCE BY PRISM (DIMENSION)</text>
-  <line x1="70" y1="360.0" x2="850" y2="360.0" stroke="#E5E7EB" stroke-width="1"/>
-<text x="58" y="364.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">0%</text>
-<line x1="70" y1="285.0" x2="850" y2="285.0" stroke="#E5E7EB" stroke-width="1"/>
-<text x="58" y="289.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">25%</text>
-<line x1="70" y1="210.0" x2="850" y2="210.0" stroke="#E5E7EB" stroke-width="1"/>
-<text x="58" y="214.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">50%</text>
-<line x1="70" y1="135.0" x2="850" y2="135.0" stroke="#E5E7EB" stroke-width="1"/>
-<text x="58" y="139.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">75%</text>
-<line x1="70" y1="60.0" x2="850" y2="60.0" stroke="#E5E7EB" stroke-width="1"/>
-<text x="58" y="64.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">100%</text>
-<text x="25" y="40" font-size="13" fill="#374151" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Maturity level (%)</text>
-<rect x="114.5" y="156.0" width="46" height="204.0" rx="4" fill="#6366F1"/>
-<text x="137.5" y="148.0" text-anchor="middle" font-size="12" font-weight="700" fill="#6366F1" font-family="Segoe UI, Arial, sans-serif">68%</text>
-<rect x="174.5" y="150.0" width="46" height="210.0" rx="4" fill="none" stroke="#6366F1" stroke-width="2" stroke-dasharray="4,3"/>
-<text x="197.5" y="142.0" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">70%</text>
-<text x="167.5" y="382" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Psychological</text>
-<rect x="309.5" y="123.0" width="46" height="237.0" rx="4" fill="#0EA5A4"/>
-<text x="332.5" y="115.0" text-anchor="middle" font-size="12" font-weight="700" fill="#0EA5A4" font-family="Segoe UI, Arial, sans-serif">79%</text>
-<rect x="369.5" y="135.0" width="46" height="225.0" rx="4" fill="none" stroke="#0EA5A4" stroke-width="2" stroke-dasharray="4,3"/>
-<text x="392.5" y="127.0" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">75%</text>
-<text x="362.5" y="382" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Organizational</text>
-<rect x="504.5" y="147.0" width="46" height="213.0" rx="4" fill="#F59E0B"/>
-<text x="527.5" y="139.0" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B" font-family="Segoe UI, Arial, sans-serif">71%</text>
-<rect x="564.5" y="150.0" width="46" height="210.0" rx="4" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,3"/>
-<text x="587.5" y="142.0" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">70%</text>
-<text x="557.5" y="382" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Design</text>
-<rect x="699.5" y="102.0" width="46" height="258.0" rx="4" fill="#EF4444"/>
-<text x="722.5" y="94.0" text-anchor="middle" font-size="12" font-weight="700" fill="#EF4444" font-family="Segoe UI, Arial, sans-serif">86%</text>
-<rect x="759.5" y="120.0" width="46" height="240.0" rx="4" fill="none" stroke="#EF4444" stroke-width="2" stroke-dasharray="4,3"/>
-<text x="782.5" y="112.0" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">80%</text>
-<text x="752.5" y="382" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Governance</text>
-<line x1="70" y1="360" x2="850" y2="360" stroke="#9CA3AF" stroke-width="1.5"/>
-<rect x="590" y="34" width="16" height="12" rx="2" fill="#4B5563"/>
-<text x="612" y="44" font-size="12" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Current maturity</text>
-<rect x="740" y="34" width="16" height="12" rx="2" fill="none" stroke="#4B5563" stroke-width="2" stroke-dasharray="3,2"/>
-<text x="762" y="44" font-size="12" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Minimum target</text>
+  <text x="30" y="234" font-size="13.5" font-weight="700" fill="#111827" letter-spacing="0.5">PERFORMANCE BY PRISM (DIMENSION)</text>
+  <line x1="70" y1="504.0" x2="870" y2="504.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="58" y="508.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">0%</text>
+<line x1="70" y1="448.0" x2="870" y2="448.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="58" y="452.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">25%</text>
+<line x1="70" y1="392.0" x2="870" y2="392.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="58" y="396.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">50%</text>
+<line x1="70" y1="336.0" x2="870" y2="336.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="58" y="340.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">75%</text>
+<line x1="70" y1="280.0" x2="870" y2="280.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="58" y="284.0" text-anchor="end" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">100%</text>
+<text x="70" y="250" font-size="12" fill="#6B7280" font-family="Segoe UI, Arial, sans-serif">Maturity level (%)</text>
+<rect x="117.0" y="351.7" width="46" height="152.3" rx="4" fill="#6366F1"/>
+<text x="140.0" y="343.7" text-anchor="middle" font-size="12" font-weight="700" fill="#6366F1" font-family="Segoe UI, Arial, sans-serif">68%</text>
+<rect x="177.0" y="347.2" width="46" height="156.8" rx="4" fill="none" stroke="#6366F1" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="200.0" y="339.2" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">70%</text>
+<text x="170.0" y="526" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Psychological</text>
+<rect x="317.0" y="327.0" width="46" height="177.0" rx="4" fill="#0EA5A4"/>
+<text x="340.0" y="319.0" text-anchor="middle" font-size="12" font-weight="700" fill="#0EA5A4" font-family="Segoe UI, Arial, sans-serif">79%</text>
+<rect x="377.0" y="336.0" width="46" height="168.0" rx="4" fill="none" stroke="#0EA5A4" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="400.0" y="328.0" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">75%</text>
+<text x="370.0" y="526" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Organizational</text>
+<rect x="517.0" y="345.0" width="46" height="159.0" rx="4" fill="#F59E0B"/>
+<text x="540.0" y="337.0" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B" font-family="Segoe UI, Arial, sans-serif">71%</text>
+<rect x="577.0" y="347.2" width="46" height="156.8" rx="4" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="600.0" y="339.2" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">70%</text>
+<text x="570.0" y="526" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Design</text>
+<rect x="717.0" y="311.4" width="46" height="192.6" rx="4" fill="#EF4444"/>
+<text x="740.0" y="303.4" text-anchor="middle" font-size="12" font-weight="700" fill="#EF4444" font-family="Segoe UI, Arial, sans-serif">86%</text>
+<rect x="777.0" y="324.8" width="46" height="179.2" rx="4" fill="none" stroke="#EF4444" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="800.0" y="316.8" text-anchor="middle" font-size="11" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif">80%</text>
+<text x="770.0" y="526" text-anchor="middle" font-size="13" font-weight="600" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Governance</text>
+<line x1="70" y1="504" x2="870" y2="504" stroke="#9CA3AF" stroke-width="1.5"/>
+<rect x="640" y="219" width="14" height="11" rx="2" fill="#4B5563"/>
+<text x="660" y="230" font-size="11.5" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Current maturity</text>
+<rect x="768" y="219" width="14" height="11" rx="2" fill="none" stroke="#4B5563" stroke-width="2" stroke-dasharray="3,2"/>
+<text x="788" y="230" font-size="11.5" fill="#374151" font-family="Segoe UI, Arial, sans-serif">Minimum target</text>
 
-  <text x="30" y="544" font-size="11" fill="#9CA3AF" font-style="italic">Illustrative preview with sample data — not a screenshot of the actual workbook.</text>
+  <text x="30" y="604" font-size="11" fill="#9CA3AF" font-style="italic">Illustrative preview with sample data — not a screenshot of the actual workbook.</text>
 </svg>
