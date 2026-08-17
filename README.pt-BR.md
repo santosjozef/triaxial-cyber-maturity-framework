@@ -5,6 +5,7 @@
   <img alt="Versão" src="https://img.shields.io/badge/versão-v1.0-blue?style=flat">
   <img alt="Licença" src="https://img.shields.io/badge/licença-uso%20acadêmico-lightgrey?style=flat">
   <img alt="Formato" src="https://img.shields.io/badge/formato-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
+  <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/1337674520.svg"></a>
 </p>
 
 <p align="left">
@@ -193,7 +194,22 @@ Este framework foi projetado seguindo um processo metodológico rigoroso de sín
 
 ## 📌 Citação e Preservação de Longo Prazo
 
-Este repositório é um link mutável do GitHub; para citação na seção de metodologia de um artigo, arquive um snapshot versionado no **[Zenodo](https://zenodo.org)** (gratuito, mantido pelo CERN) para obter um **DOI** permanente. Em resumo: faça login no Zenodo com sua conta do GitHub, habilite este repositório na integração do Zenodo com o GitHub e crie uma Release no GitHub — o Zenodo arquiva automaticamente essa release e gera um DOI que pode ser citado diretamente no artigo.
+Este repositório é versionado e arquivado permanentemente no **[Zenodo](https://zenodo.org)** (gratuito, mantido pelo CERN), que gera um **DOI** estável para cada release — diferente de um link comum do GitHub, um DOI não pode ser movido, renomeado ou apagado, tornando-o a referência adequada para a seção de metodologia de um artigo.
+
+[![DOI](https://zenodo.org/badge/1337674520.svg)](https://doi.org/10.5281/zenodo.21986801)
+
+> **DOI:** [10.5281/zenodo.21986801](https://doi.org/10.5281/zenodo.21986801)
+
+**BibTeX:**
+
+```bibtex
+@software{santos_triaxial_framework,
+  author    = {Santos, Karol Jozef Oliveira and Silva, Daniel Alves da and Florindo, Luiz Gustavo Marques},
+  title     = {{Triaxial Cybersecurity Maturity Framework}},
+  doi       = {10.5281/zenodo.21986801},
+  url       = {https://doi.org/10.5281/zenodo.21986801}
+}
+```
 
 ---
 
