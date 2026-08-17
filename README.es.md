@@ -24,7 +24,7 @@
 
 Diversos estudios indican que **más del 95%** de los incidentes cibernéticos involucran, en algún nivel, error o manipulación humana. A pesar de ello, la mayoría de las organizaciones mide su postura de seguridad de forma puramente técnica o mediante *reach metrics* (cuántas personas "vieron la capacitación"), sin ninguna métrica objetiva de efectividad.
 
-Este repositorio pone a disposición la hoja de cálculo **`cybersecurity-maturity-framework.xlsx`**, que operacionaliza el **Modelo Triaxial** (Psicológico, Organizacional y de Diseño) descrito en el artículo, extendido con un **cuarto prisma de Gobernanza y Cumplimiento** (NIST SP 800-53 y LGPD), dando como resultado un instrumento de **16 criterios de evaluación, agrupados en 4 dimensiones**, con pesos y fórmulas ponderadas que generan un **Índice General de Madurez (Imat)** y una clasificación organizacional automática.
+Este repositorio pone a disposición la hoja de cálculo **[`framework-triaxial-madurez-ciberseguridad.xlsx`](framework-triaxial-madurez-ciberseguridad.xlsx)** — la versión completamente en español de la hoja de cálculo original `cybersecurity-maturity-framework.xlsx` (hojas, encabezados, criterios y mensajes de validación traducidos) — que operacionaliza el **Modelo Triaxial** (Psicológico, Organizacional y de Diseño) descrito en el artículo, extendido con un **cuarto prisma de Gobernanza y Cumplimiento** (NIST SP 800-53 y LGPD), dando como resultado un instrumento de **16 criterios de evaluación, agrupados en 4 dimensiones**, con pesos y fórmulas ponderadas que generan un **Índice General de Madurez (Imat)** y una clasificación organizacional automática.
 
 | Prisma | Enfoque | Referencia clave |
 |---|---|---|
@@ -35,11 +35,23 @@ Este repositorio pone a disposición la hoja de cálculo **`cybersecurity-maturi
 
 ---
 
+## 🖼️ Vista Previa del Panel de Control
+
+<p align="center">
+  <img src="docs/dashboard-preview.es.svg" alt="Vista previa ilustrativa de la hoja Panel de Control con datos de ejemplo" width="100%">
+</p>
+
+<p align="center"><sub>Maqueta ilustrativa con datos de ejemplo que reproduce el diseño real de la hoja <code>Panel de Control</code> — Índice General de Madurez, Categoría de Madurez y el gráfico de desempeño por prisma. No es una captura de pantalla literal de la hoja de cálculo.</sub></p>
+
+---
+
 ## 🗂️ Estructura de la Hoja de Cálculo
+
+> Las tablas siguientes usan los nombres técnicos originales de las hojas/columnas (`Dashboard`, `Assessment`) para facilitar la referencia cruzada con las fórmulas y la versión en inglés. En la hoja de cálculo traducida `framework-triaxial-madurez-ciberseguridad.xlsx`, esas hojas se llaman **`Panel de Control`** y **`Evaluación`**, con todos los encabezados, criterios y mensajes de validación en español.
 
 El libro tiene **2 hojas**:
 
-### 1. `Dashboard` — Panel Ejecutivo
+### 1. `Dashboard` (**"Panel de Control"** en la versión ES) — Panel Ejecutivo
 
 | Celda | Contenido | Fórmula |
 |---|---|---|
@@ -49,7 +61,7 @@ El libro tiene **2 hojas**:
 | `A9:C13` | **Desempeño por Prisma**, calculado mediante `SUMIF` sobre la hoja `Assessment`, comparado con la meta mínima recomendada por dimensión | `=SUMIF(Assessment!$B$5:$B$20, "<Prisma>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
 | — | Gráfico de columnas nativo que compara la **madurez actual vs. meta mínima** por prisma | Excel Chart |
 
-### 2. `Assessment` — Entrada de Datos (16 criterios)
+### 2. `Assessment` (**"Evaluación"** en la versión ES) — Entrada de Datos (16 criterios)
 
 | Columna | Nombre | Descripción |
 |---|---|---|
@@ -142,8 +154,8 @@ donde `sᵢ ∈ {1,...,5}` es la puntuación asignada al criterio *i* y `wᵢ` e
 
 ## 🚀 Cómo Usar
 
-1. **Abra** el archivo `cybersecurity-maturity-framework.xlsx` en Excel, LibreOffice Calc o Google Sheets.
-2. Vaya a la hoja **`Assessment`**.
+1. **Abra** el archivo `framework-triaxial-madurez-ciberseguridad.xlsx` en Excel, LibreOffice Calc o Google Sheets.
+2. Vaya a la hoja **`Evaluación`**.
 3. Para cada uno de los 16 criterios (filas 5 a 20), complete la columna **`F` (Score)** con una puntuación de **1 a 5**, con base en la evidencia descrita en la columna `E`:
 
    | Puntuación | Significado |
@@ -154,7 +166,7 @@ donde `sᵢ ∈ {1,...,5}` es la puntuación asignada al criterio *i* y `wᵢ` e
    | 4 | Bueno — implementado y monitoreado |
    | 5 | Líder / resiliente — optimizado y auditado |
 
-4. Vuelva a la hoja **`Dashboard`** — el **Índice General de Madurez**, la **categoría** y el **gráfico por prisma** se recalculan automáticamente.
+4. Vuelva a la hoja **`Panel de Control`** — el **Índice General de Madurez**, la **categoría** y el **gráfico por prisma** se recalculan automáticamente.
 5. Use la tabla **"Performance by Prism"** para identificar los **cuellos de botella** (el prisma con la mayor brecha entre la madurez actual y la meta mínima recomendada).
 6. Reaplique la evaluación periódicamente (p. ej., semestralmente) para dar seguimiento a la evolución del índice en el tiempo.
 
@@ -176,6 +188,10 @@ El framework operacionaliza, entre otros, los siguientes modelos citados en el a
 - El instrumento aún **no ha pasado por una validación externa**; sus pesos reflejan la síntesis de los autores y deben tratarse como una primera aproximación.
 - Alcance de la literatura predominantemente occidental.
 - Ausencia de estudios longitudinales de causalidad.
+
+## 📌 Cita y Preservación a Largo Plazo
+
+Este repositorio es un enlace mutable de GitHub; para citarlo en la sección de metodología de un artículo, archive una instantánea versionada en **[Zenodo](https://zenodo.org)** (gratuito, respaldado por el CERN) para obtener un **DOI** permanente. En resumen: inicie sesión en Zenodo con su cuenta de GitHub, habilite este repositorio en la integración de Zenodo con GitHub y cree un Release en GitHub — Zenodo archivará automáticamente ese release y generará un DOI que podrá citar directamente en el artículo.
 
 ---
 

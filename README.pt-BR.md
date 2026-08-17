@@ -24,7 +24,7 @@
 
 Estudos apontam que **mais de 95%** dos incidentes cibernéticos envolvem, em algum nível, erro ou manipulação humana. Apesar disso, a maioria das organizações mede sua postura de segurança de forma puramente técnica ou por *reach metrics* (quantas pessoas "assistiram ao treinamento"), sem nenhuma métrica objetiva de efetividade.
 
-Este repositório disponibiliza a planilha **`cybersecurity-maturity-framework.xlsx`**, que opera­cionaliza o **Modelo Triaxial** (Psicológico, Organizacional e Design) descrito no artigo, estendido com um **quarto prisma de Governança e Conformidade** (NIST SP 800-53 e LGPD), resultando em um instrumento de **16 critérios de avaliação, agrupados em 4 dimensões**, com pesos e fórmulas ponderadas que geram um **Índice Geral de Maturidade (Imat)** e uma classificação organizacional automática.
+Este repositório disponibiliza a planilha **[`framework-triaxial-maturidade-ciberseguranca.xlsx`](framework-triaxial-maturidade-ciberseguranca.xlsx)** — a versão totalmente em português da planilha original `cybersecurity-maturity-framework.xlsx` (abas, cabeçalhos, critérios e mensagens de validação traduzidos) — que opera­cionaliza o **Modelo Triaxial** (Psicológico, Organizacional e Design) descrito no artigo, estendido com um **quarto prisma de Governança e Conformidade** (NIST SP 800-53 e LGPD), resultando em um instrumento de **16 critérios de avaliação, agrupados em 4 dimensões**, com pesos e fórmulas ponderadas que geram um **Índice Geral de Maturidade (Imat)** e uma classificação organizacional automática.
 
 | Prisma | Foco | Referência-chave |
 |---|---|---|
@@ -35,11 +35,23 @@ Este repositório disponibiliza a planilha **`cybersecurity-maturity-framework.x
 
 ---
 
+## 🖼️ Prévia do Painel Executivo
+
+<p align="center">
+  <img src="docs/dashboard-preview.pt-BR.svg" alt="Prévia ilustrativa da aba Painel de Controle com dados de exemplo" width="100%">
+</p>
+
+<p align="center"><sub>Mockup ilustrativo com dados de exemplo, reproduzindo o layout real da aba <code>Painel de Controle</code> — Índice Geral de Maturidade, Categoria de Maturidade e o gráfico de desempenho por prisma. Não é uma captura de tela literal da planilha.</sub></p>
+
+---
+
 ## 🗂️ Estrutura da Planilha
+
+> As tabelas abaixo usam os nomes técnicos originais das abas/colunas (`Dashboard`, `Assessment`) para facilitar a referência cruzada com fórmulas e a versão em inglês. Na planilha traduzida `framework-triaxial-maturidade-ciberseguranca.xlsx`, essas abas se chamam **`Painel de Controle`** e **`Avaliação`**, com todos os cabeçalhos, critérios e mensagens de validação em português.
 
 A planilha possui **2 abas**:
 
-### 1. `Dashboard` — Painel Executivo
+### 1. `Dashboard` (**"Painel de Controle"** na versão PT) — Painel Executivo
 
 | Célula | Conteúdo | Fórmula |
 |---|---|---|
@@ -49,7 +61,7 @@ A planilha possui **2 abas**:
 | `A9:C13` | **Desempenho por Prisma**, calculado via `SUMIF` sobre a aba `Assessment`, comparado à meta mínima recomendada por dimensão | `=SUMIF(Assessment!$B$5:$B$20, "<Prisma>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
 | — | Gráfico de colunas nativo comparando **maturidade atual vs. meta mínima** por prisma | Excel Chart |
 
-### 2. `Assessment` — Entrada de Dados (16 critérios)
+### 2. `Assessment` (**"Avaliação"** na versão PT) — Entrada de Dados (16 critérios)
 
 | Coluna | Nome | Descrição |
 |---|---|---|
@@ -142,8 +154,8 @@ onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o pe
 
 ## 🚀 Como Usar
 
-1. **Abra** o arquivo `cybersecurity-maturity-framework.xlsx` no Excel, LibreOffice Calc ou Google Sheets.
-2. Vá até a aba **`Assessment`**.
+1. **Abra** o arquivo `framework-triaxial-maturidade-ciberseguranca.xlsx` no Excel, LibreOffice Calc ou Google Sheets.
+2. Vá até a aba **`Avaliação`**.
 3. Para cada um dos 16 critérios (linhas 5 a 20), preencha a coluna **`F` (Score)** com uma nota de **1 a 5**, com base nas evidências descritas na coluna `E`:
 
    | Nota | Significado |
@@ -154,7 +166,7 @@ onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o pe
    | 4 | Bom — implementado e monitorado |
    | 5 | Líder / resiliente — otimizado e auditado |
 
-4. Volte para a aba **`Dashboard`** — o **Índice Geral de Maturidade**, a **categoria** e o **gráfico por prisma** são recalculados automaticamente.
+4. Volte para a aba **`Painel de Controle`** — o **Índice Geral de Maturidade**, a **categoria** e o **gráfico por prisma** são recalculados automaticamente.
 5. Use a tabela **"Performance by Prism"** para identificar os **gargalos** (o prisma com maior distância entre maturidade atual e meta mínima recomendada).
 6. Reaplique a avaliação periodicamente (ex.: semestral) para acompanhar a evolução do índice ao longo do tempo.
 
@@ -176,6 +188,10 @@ O framework opera­cionaliza, entre outros, os seguintes modelos citados no arti
 - O instrumento ainda **não passou por validação externa**; os pesos refletem a síntese dos autores e devem ser tratados como uma primeira aproximação.
 - Escopo de literatura predominantemente ocidental.
 - Ausência de estudos longitudinais de causalidade.
+
+## 📌 Citação e Preservação de Longo Prazo
+
+Este repositório é um link mutável do GitHub; para citação na seção de metodologia de um artigo, arquive um snapshot versionado no **[Zenodo](https://zenodo.org)** (gratuito, mantido pelo CERN) para obter um **DOI** permanente. Em resumo: faça login no Zenodo com sua conta do GitHub, habilite este repositório na integração do Zenodo com o GitHub e crie uma Release no GitHub — o Zenodo arquiva automaticamente essa release e gera um DOI que pode ser citado diretamente no artigo.
 
 ---
 

@@ -35,6 +35,16 @@ This repository provides the spreadsheet **`cybersecurity-maturity-framework.xls
 
 ---
 
+## 🖼️ Dashboard Preview
+
+<p align="center">
+  <img src="docs/dashboard-preview.svg" alt="Illustrative preview of the Dashboard tab with sample data" width="100%">
+</p>
+
+<p align="center"><sub>Illustrative mockup with sample data reproducing the actual layout of the <code>Dashboard</code> sheet — Overall Maturity Index, Maturity Category, and the per-prism performance chart. Not a literal screenshot of the workbook.</sub></p>
+
+---
+
 ## 🗂️ Spreadsheet Structure
 
 The workbook has **2 sheets**:
@@ -176,6 +186,10 @@ The framework operationalizes, among others, the following models cited in the o
 - The instrument has **not yet undergone external validation**; its weights reflect the authors' synthesis and should be treated as a first approximation.
 - Predominantly Western scope of the underlying literature.
 - Absence of longitudinal causality studies.
+
+## 📌 Citing This Work / Long-Term Archival
+
+This repository is a mutable GitHub link; for citation in a paper's methodology section, archive a versioned snapshot on **[Zenodo](https://zenodo.org)** (free, CERN-backed) to obtain a permanent **DOI**. In short: sign in to Zenodo with your GitHub account, enable this repository under Zenodo's GitHub integration, then cut a GitHub Release — Zenodo automatically archives that release and mints a DOI you can cite directly in the paper.
 
 ---
 
