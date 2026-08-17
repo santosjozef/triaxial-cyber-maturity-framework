@@ -5,7 +5,7 @@
   <img alt="Versión" src="https://img.shields.io/badge/versión-v1.0-blue?style=flat">
   <img alt="Licencia" src="https://img.shields.io/badge/licencia-uso%20académico-lightgrey?style=flat">
   <img alt="Formato" src="https://img.shields.io/badge/formato-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
-  <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/1337674520.svg"></a>
+  <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.21986801.svg"></a>
 </p>
 
 <p align="left">
@@ -196,7 +196,7 @@ Este framework fue diseñado siguiendo un proceso metodológico riguroso de sín
 
 Este repositorio está versionado y archivado permanentemente en **[Zenodo](https://zenodo.org)** (gratuito, respaldado por el CERN), que genera un **DOI** estable para cada release — a diferencia de un enlace común de GitHub, un DOI no puede moverse, renombrarse ni eliminarse, lo que lo convierte en la referencia adecuada para la sección de metodología de un artículo.
 
-[![DOI](https://zenodo.org/badge/1337674520.svg)](https://doi.org/10.5281/zenodo.21986801)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21986801.svg)](https://doi.org/10.5281/zenodo.21986801)
 
 > **DOI:** [10.5281/zenodo.21986801](https://doi.org/10.5281/zenodo.21986801)
 
