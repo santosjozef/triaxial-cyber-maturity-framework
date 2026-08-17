@@ -1,182 +1,184 @@
 # 🛡️ Triaxial Cybersecurity Maturity Framework
 
 <p align="left">
-  <img alt="Status" src="https://img.shields.io/badge/status-ativo-2ea44f?style=for-the-badge">
-  <img alt="Versão" src="https://img.shields.io/badge/versão-v1.0-blue?style=for-the-badge">
-  <img alt="Licença" src="https://img.shields.io/badge/licença-uso%20acadêmico-lightgrey?style=for-the-badge">
-  <img alt="Formato" src="https://img.shields.io/badge/formato-.xlsx-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
+  <img alt="Status" src="https://img.shields.io/badge/status-active-2ea44f?style=flat">
+  <img alt="Version" src="https://img.shields.io/badge/version-v1.0-blue?style=flat">
+  <img alt="License" src="https://img.shields.io/badge/license-academic%20use-lightgrey?style=flat">
+  <img alt="Format" src="https://img.shields.io/badge/format-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
 </p>
 
 <p align="left">
-  <img alt="Critérios" src="https://img.shields.io/badge/critérios-16-orange?style=flat-square">
-  <img alt="Prismas" src="https://img.shields.io/badge/prismas-4-purple?style=flat-square">
-  <img alt="Escala" src="https://img.shields.io/badge/escala-1--5-yellow?style=flat-square">
-  <img alt="Base científica" src="https://img.shields.io/badge/base-32%20refs%20científicas-blueviolet?style=flat-square">
+  <img alt="Criteria" src="https://img.shields.io/badge/criteria-16-orange?style=flat">
+  <img alt="Prisms" src="https://img.shields.io/badge/prisms-4-purple?style=flat">
+  <img alt="Scale" src="https://img.shields.io/badge/scale-1--5-yellow?style=flat">
+  <img alt="Scientific base" src="https://img.shields.io/badge/base-32%20scientific%20refs-blueviolet?style=flat">
 </p>
 
-> **Instrumento auditável e quantitativo** para medir a maturidade de cibersegurança sob a ótica do fator humano, derivado do artigo *"Human Factors in Cybersecurity: A Triaxial Analysis from the Psychological, Organizational, and Design Perspectives, with an Extended Governance-Oriented Maturity Assessment Instrument"* (Santos, Silva & Florindo, PPEE/UnB).
+**🌐 Read this in another language:** **English** · [Português (BR)](README.pt-BR.md) · [Español](README.es.md)
+
+> **An auditable, quantitative instrument** for measuring cybersecurity maturity through the lens of the human factor, derived from the paper *"Human Factors in Cybersecurity: A Triaxial Analysis from the Psychological, Organizational, and Design Perspectives, with an Extended Governance-Oriented Maturity Assessment Instrument"* (Santos, Silva & Florindo, PPEE/UnB).
 
 ---
 
-## 📖 Sobre o Framework
+## 📖 About the Framework
 
-Estudos apontam que **mais de 95%** dos incidentes cibernéticos envolvem, em algum nível, erro ou manipulação humana. Apesar disso, a maioria das organizações mede sua postura de segurança de forma puramente técnica ou por *reach metrics* (quantas pessoas "assistiram ao treinamento"), sem nenhuma métrica objetiva de efetividade.
+Studies indicate that **more than 95%** of cyber incidents involve, at some level, human error or manipulation. Despite this, most organizations still measure their security posture in purely technical terms or through *reach metrics* (how many people "watched the training"), without any objective effectiveness metric.
 
-Este repositório disponibiliza a planilha **`cybersecurity-maturity-framework.xlsx`**, que opera­cionaliza o **Modelo Triaxial** (Psicológico, Organizacional e Design) descrito no artigo, estendido com um **quarto prisma de Governança e Conformidade** (NIST SP 800-53 e LGPD), resultando em um instrumento de **16 critérios de avaliação, agrupados em 4 dimensões**, com pesos e fórmulas ponderadas que geram um **Índice Geral de Maturidade (Imat)** e uma classificação organizacional automática.
+This repository provides the spreadsheet **`cybersecurity-maturity-framework.xlsx`**, which operationalizes the **Triaxial Model** (Psychological, Organizational, and Design) described in the paper, extended with a **fourth prism — Governance and Compliance** (NIST SP 800-53 and LGPD), resulting in an instrument with **16 evaluation criteria, grouped into 4 dimensions**, with weights and weighted formulas that generate an **Overall Maturity Index (Imat)** and an automatic organizational classification.
 
-| Prisma | Foco | Referência-chave |
+| Prism | Focus | Key Reference |
 |---|---|---|
-| 🧠 **Psicológico** | Amygdala hijacking, viés de automação, letramento digital, phishing | Hadlington (2017); Hagen et al. (2025); Anwar et al. (2017) |
-| 🏢 **Organizacional** | Paradoxo conhecimento‑comportamento, efetividade de CSA via CTI, inteligência integrada, notificação de incidentes | Georgiadou et al. (2022); Silva et al. (2025) |
-| 🎨 **Design** | Framework HC3, carga cognitiva, *security by design*, governança de BYOD/Shadow IT | Cristiano & Spadafora (2024); Gutzwiller & Van Bruggen (2021) |
-| ⚖️ **Governança e Conformidade** | Controles NIST SP 800‑53, princípios da LGPD, notificação ao CTIR Gov, OSINT antifraude | NIST SP 800‑53 Rev. 5; LGPD (Lei nº 13.709/2018) |
+| 🧠 **Psychological** | Amygdala hijacking, automation bias, digital literacy, phishing | Hadlington (2017); Hagen et al. (2025); Anwar et al. (2017) |
+| 🏢 **Organizational** | Knowledge–behavior paradox, CTI-based CSA effectiveness, integrated intelligence, incident notification | Georgiadou et al. (2022); Silva et al. (2025) |
+| 🎨 **Design** | HC3 framework, cognitive load, security by design, BYOD/Shadow IT governance | Cristiano & Spadafora (2024); Gutzwiller & Van Bruggen (2021) |
+| ⚖️ **Governance and Compliance** | NIST SP 800-53 controls, LGPD principles, CTIR Gov notification, OSINT anti-fraud | NIST SP 800-53 Rev. 5; LGPD (Law No. 13.709/2018) |
 
 ---
 
-## 🗂️ Estrutura da Planilha
+## 🗂️ Spreadsheet Structure
 
-A planilha possui **2 abas**:
+The workbook has **2 sheets**:
 
-### 1. `Dashboard` — Painel Executivo
+### 1. `Dashboard` — Executive Panel
 
-| Célula | Conteúdo | Fórmula |
+| Cell | Content | Formula |
 |---|---|---|
-| `A5:B6` | **Índice Geral de Maturidade** | `=Assessment!H21/Assessment!I21` |
-| `C5:D6` | **Categoria de Maturidade** (veredito dinâmico) | `=IF(A5<0.4,"Vulnerable/Critical", IF(A5<0.6,"Reactive/Basic", IF(A5<0.8,"Proactive/Managed","Resilient/Optimized")))` |
-| `F4:I8` | Tabela de referência com a descrição de cada faixa de maturidade | estático |
-| `A9:C13` | **Desempenho por Prisma**, calculado via `SUMIF` sobre a aba `Assessment`, comparado à meta mínima recomendada por dimensão | `=SUMIF(Assessment!$B$5:$B$20, "<Prisma>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
-| — | Gráfico de colunas nativo comparando **maturidade atual vs. meta mínima** por prisma | Excel Chart |
+| `A5:B6` | **Overall Maturity Index** | `=Assessment!H21/Assessment!I21` |
+| `C5:D6` | **Maturity Category** (dynamic verdict) | `=IF(A5<0.4,"Vulnerable/Critical", IF(A5<0.6,"Reactive/Basic", IF(A5<0.8,"Proactive/Managed","Resilient/Optimized")))` |
+| `F4:I8` | Reference table describing each maturity band | static |
+| `A9:C13` | **Performance by Prism**, computed via `SUMIF` over the `Assessment` sheet, compared against the recommended minimum target per dimension | `=SUMIF(Assessment!$B$5:$B$20, "<Prism>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
+| — | Native column chart comparing **current maturity vs. minimum target** per prism | Excel Chart |
 
-### 2. `Assessment` — Entrada de Dados (16 critérios)
+### 2. `Assessment` — Data Entry (16 criteria)
 
-| Coluna | Nome | Descrição |
+| Column | Name | Description |
 |---|---|---|
-| A | ID | Identificador do critério (`PS-01`…`GO-04`) |
-| B | Analysis Prism | Dimensão à qual o critério pertence |
-| C | Metric / Requirement | O que está sendo avaliado |
-| D | Scientific Reference | Autor/ano que fundamenta o critério |
-| E | Evidence & Evaluation Criteria | Descrição operacional do que observar/auditar |
-| **F** | **Score (1–5)** | 🔵 **Única coluna editável** — nota atribuída pelo avaliador |
-| G | Weight (1–3) | Peso do critério na dimensão |
+| A | ID | Criterion identifier (`PS-01`…`GO-04`) |
+| B | Analysis Prism | Dimension the criterion belongs to |
+| C | Metric / Requirement | What is being evaluated |
+| D | Scientific Reference | Author/year underpinning the criterion |
+| E | Evidence & Evaluation Criteria | Operational description of what to observe/audit |
+| **F** | **Score (1–5)** | 🔵 **Only editable column** — score assigned by the assessor |
+| G | Weight (1–3) | Weight of the criterion within its dimension |
 | H | Weighted Score | `=F*G` |
 | I | Max Score | `=G*5` |
-| J | Progress | `=H/I` (% de maturidade do critério) |
+| J | Progress | `=H/I` (% maturity of the criterion) |
 | 21 | **TOTALS & AVERAGES** | `F21=AVERAGE(F5:F20)` · `G21=SUM(G5:G20)` · `H21=SUM(H5:H20)` · `I21=SUM(I5:I20)` · `J21=H21/I21` |
 
-> 🔒 **Validação de dados:** o intervalo `F5:F20` aceita **somente números inteiros de 1 a 5**. Qualquer outro valor é rejeitado pela regra `dataValidation` embutida na planilha, com a mensagem *"A nota inserida deve ser um número inteiro de 1 a 5."*
+> 🔒 **Data validation:** the range `F5:F20` accepts **only whole numbers from 1 to 5**. Any other value is rejected by the built-in `dataValidation` rule, with the message *"The entered score must be a whole number from 1 to 5."*
 
 ---
 
-## 📐 Fórmula do Índice Geral de Maturidade
+## 📐 Overall Maturity Index Formula
 
 $$
 I_{mat} = \frac{\sum_{i=1}^{16} s_i \cdot w_i}{\sum_{i=1}^{16} 5 \cdot w_i} \times 100\%
 $$
 
-onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o peso do critério, conforme a tabela de critérios abaixo.
+where `sᵢ ∈ {1,...,5}` is the score assigned to criterion *i* and `wᵢ` is the criterion's weight, per the criteria table below.
 
-### 🚦 Classificação de Maturidade
+### 🚦 Maturity Classification
 
-| Faixa | Categoria | Significado |
+| Band | Category | Meaning |
 |---|---|---|
-| 🔴 `< 40%` | **Vulnerável / Crítico** | Alta exposição à manipulação e falhas graves de processo/design |
-| 🟠 `41% – 60%` | **Reativo / Básico** | Cumprimento burocrático de política formal de TI, baixo engajamento real |
-| 🟡 `61% – 80%` | **Proativo / Gerenciado** | Monitoramento ativo via inteligência e interfaces centradas no usuário |
-| 🟢 `81% – 100%` | **Resiliente / Otimizado** | Cultura de resiliência integrada, conformidade nativa, segurança *by design* |
+| 🔴 `< 40%` | **Vulnerable / Critical** | High exposure to manipulation and severe process/design failures |
+| 🟠 `41% – 60%` | **Reactive / Basic** | Bureaucratic compliance with formal IT policy, low real engagement |
+| 🟡 `61% – 80%` | **Proactive / Managed** | Active monitoring via intelligence and user-centered interfaces |
+| 🟢 `81% – 100%` | **Resilient / Optimized** | Integrated resilience culture, native compliance, security by design |
 
 ---
 
-## 📋 Os 16 Critérios de Avaliação
+## 📋 The 16 Evaluation Criteria
 
 <details>
-<summary><b>🧠 Prisma Psicológico</b> (clique para expandir)</summary>
+<summary><b>🧠 Psychological Prism</b> (click to expand)</summary>
 
-| ID | Critério | Peso |
+| ID | Criterion | Weight |
 |---|---|:---:|
-| `PS-01` | Controle de Amygdala Hijacking | 3 |
-| `PS-02` | Atenuação de viés de automação/confirmação | 2 |
-| `PS-03` | Autoeficácia e letramento digital | 2 |
-| `PS-04` | Suscetibilidade a phishing | 3 |
+| `PS-01` | Control of amygdala hijacking | 3 |
+| `PS-02` | Attenuation of automation/confirmation bias | 2 |
+| `PS-03` | Self-efficacy & digital literacy | 2 |
+| `PS-04` | Phishing susceptibility | 3 |
 
 </details>
 
 <details>
-<summary><b>🏢 Prisma Organizacional</b></summary>
+<summary><b>🏢 Organizational Prism</b></summary>
 
-| ID | Critério | Peso |
+| ID | Criterion | Weight |
 |---|---|:---:|
-| `OR-01` | Paradoxo conhecimento–comportamento | 2 |
-| `OR-02` | Efetividade/resiliência de CSA via CTI | 3 |
-| `OR-03` | Processo de inteligência integrada | 2 |
-| `OR-04` | Notificação ágil de incidentes | 2 |
+| `OR-01` | Knowledge–behavior paradox | 2 |
+| `OR-02` | CSA effectiveness/resilience via CTI | 3 |
+| `OR-03` | Integrated intelligence process | 2 |
+| `OR-04` | Agile incident notification | 2 |
 
 </details>
 
 <details>
-<summary><b>🎨 Prisma de Design</b></summary>
+<summary><b>🎨 Design Prism</b></summary>
 
-| ID | Critério | Peso |
+| ID | Criterion | Weight |
 |---|---|:---:|
-| `DS-01` | Uso do framework HC3 | 3 |
-| `DS-02` | Carga cognitiva e fricção de autenticação | 2 |
-| `DS-03` | *Security by Design* e controle humano | 2 |
-| `DS-04` | Governança de BYOD e Shadow IT | 1 |
+| `DS-01` | Use of the HC3 framework | 3 |
+| `DS-02` | Cognitive load & authentication friction | 2 |
+| `DS-03` | Security by Design & human control | 2 |
+| `DS-04` | BYOD & Shadow IT governance | 1 |
 
 </details>
 
 <details>
-<summary><b>⚖️ Prisma de Governança e Conformidade</b></summary>
+<summary><b>⚖️ Governance and Compliance Prism</b></summary>
 
-| ID | Critério | Peso |
+| ID | Criterion | Weight |
 |---|---|:---:|
-| `GO-01` | Controles de governança NIST SP 800-53 (PM/AC/CA) | 3 |
-| `GO-02` | Controles de detecção/resposta NIST SP 800-53 (AU/PT/IR/CP) | 3 |
-| `GO-03` | Princípios de privacidade da LGPD | 2 |
-| `GO-04` | Blindagem OSINT e mitigação de fraude | 1 |
+| `GO-01` | NIST SP 800-53 governance controls (PM/AC/CA) | 3 |
+| `GO-02` | NIST SP 800-53 detect/respond controls (AU/PT/IR/CP) | 3 |
+| `GO-03` | LGPD privacy principles | 2 |
+| `GO-04` | OSINT shielding & fraud mitigation | 1 |
 
 </details>
 
 ---
 
-## 🚀 Como Usar
+## 🚀 How to Use
 
-1. **Abra** o arquivo `cybersecurity-maturity-framework.xlsx` no Excel, LibreOffice Calc ou Google Sheets.
-2. Vá até a aba **`Assessment`**.
-3. Para cada um dos 16 critérios (linhas 5 a 20), preencha a coluna **`F` (Score)** com uma nota de **1 a 5**, com base nas evidências descritas na coluna `E`:
+1. **Open** `cybersecurity-maturity-framework.xlsx` in Excel, LibreOffice Calc, or Google Sheets.
+2. Go to the **`Assessment`** sheet.
+3. For each of the 16 criteria (rows 5 to 20), fill in column **`F` (Score)** with a rating from **1 to 5**, based on the evidence described in column `E`:
 
-   | Nota | Significado |
+   | Score | Meaning |
    |:---:|---|
-   | 1 | Muito fraco / crítico — inexistente |
-   | 2 | Fraco — ad hoc, não documentado |
-   | 3 | Intermediário — parcialmente implementado |
-   | 4 | Bom — implementado e monitorado |
-   | 5 | Líder / resiliente — otimizado e auditado |
+   | 1 | Very weak / critical — non-existent |
+   | 2 | Weak — ad hoc, undocumented |
+   | 3 | Intermediate — partially implemented |
+   | 4 | Good — implemented and monitored |
+   | 5 | Leader / resilient — optimized and audited |
 
-4. Volte para a aba **`Dashboard`** — o **Índice Geral de Maturidade**, a **categoria** e o **gráfico por prisma** são recalculados automaticamente.
-5. Use a tabela **"Performance by Prism"** para identificar os **gargalos** (o prisma com maior distância entre maturidade atual e meta mínima recomendada).
-6. Reaplique a avaliação periodicamente (ex.: semestral) para acompanhar a evolução do índice ao longo do tempo.
+4. Go back to the **`Dashboard`** sheet — the **Overall Maturity Index**, the **category**, and the **per-prism chart** are recalculated automatically.
+5. Use the **"Performance by Prism"** table to identify **bottlenecks** (the prism with the largest gap between current maturity and the recommended minimum target).
+6. Reapply the assessment periodically (e.g., semi-annually) to track the index's evolution over time.
 
-> ⚠️ Não edite as colunas `H`, `I` e `J` — elas contêm fórmulas calculadas automaticamente a partir da nota (`F`) e do peso (`G`).
+> ⚠️ Do not edit columns `H`, `I`, and `J` — they contain formulas calculated automatically from the score (`F`) and the weight (`G`).
 
 ---
 
-## 🔬 Fundamentação Científica
+## 🔬 Scientific Foundation
 
-O framework opera­cionaliza, entre outros, os seguintes modelos citados no artigo original:
+The framework operationalizes, among others, the following models cited in the original paper:
 
-- **Modelo de efetividade de CSA via CTI** (Silva et al., 2025) — base do critério `OR-02`, cruzando participação em treinamentos com dados reais de exposição de credenciais.
-- **Framework HC3** (Cristiano & Spadafora, 2024) — base do critério `DS-01`, com as 8 etapas de design centrado no usuário para sistemas criptográficos.
-- **17 fatores humanos em cibersegurança** (Rohan et al., 2021) — fundamentam os critérios do prisma Psicológico.
-- **NIST SP 800-53 Rev. 5** e **LGPD (Lei nº 13.709/2018)** — fundamentam o quarto prisma de Governança.
+- **CTI-based CSA effectiveness model** (Silva et al., 2025) — underpins criterion `OR-02`, cross-referencing training participation with real credential-exposure data.
+- **HC3 framework** (Cristiano & Spadafora, 2024) — underpins criterion `DS-01`, with the 8 user-centered design stages for cryptographic systems.
+- **17 human factors in cybersecurity** (Rohan et al., 2021) — underpin the criteria of the Psychological prism.
+- **NIST SP 800-53 Rev. 5** and **LGPD (Law No. 13.709/2018)** — underpin the fourth, Governance prism.
 
-## ⚠️ Limitações (v1.0)
+## ⚠️ Limitations (v1.0)
 
-- O instrumento ainda **não passou por validação externa**; os pesos refletem a síntese dos autores e devem ser tratados como uma primeira aproximação.
-- Escopo de literatura predominantemente ocidental.
-- Ausência de estudos longitudinais de causalidade.
+- The instrument has **not yet undergone external validation**; its weights reflect the authors' synthesis and should be treated as a first approximation.
+- Predominantly Western scope of the underlying literature.
+- Absence of longitudinal causality studies.
 
 ---
 
 <p align="center">
-  <sub>Baseado em Santos, K. J. O.; Silva, D. A.; Florindo, L. G. M. — Programa de Pós-Graduação Profissional em Engenharia Elétrica (PPEE), Universidade de Brasília (UnB).</sub>
+  <sub>Based on Santos, K. J. O.; Silva, D. A.; Florindo, L. G. M. — Professional Graduate Program in Electrical Engineering (PPEE), University of Brasília (UnB).</sub>
 </p>
