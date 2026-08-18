@@ -153,21 +153,47 @@ where `sᵢ ∈ {1,...,5}` is the score assigned to criterion *i* and `wᵢ` is 
 
 ## 🚀 How to Use
 
-1. **Open** `cybersecurity-maturity-framework.xlsx` in Excel, LibreOffice Calc, or Google Sheets.
-2. Go to the **`Assessment`** sheet.
-3. For each of the 16 criteria (rows 5 to 20), fill in column **`F` (Score)** with a rating from **1 to 5**, based on the evidence described in column `E`:
+Filling in the workbook is simple, practical, and fully automated. All calculation logic is protected, so you only need to enter your assessment scores.
 
-   | Score | Meaning |
-   |:---:|---|
-   | 1 | Very weak / critical — non-existent |
-   | 2 | Weak — ad hoc, undocumented |
-   | 3 | Intermediate — partially implemented |
-   | 4 | Good — implemented and monitored |
-   | 5 | Leader / resilient — optimized and audited |
+### Step 1 — Open the `Assessment` sheet
 
-4. Go back to the **`Dashboard`** sheet — the **Overall Maturity Index**, the **category**, and the **per-prism chart** are recalculated automatically.
-5. Use the **"Performance by Prism"** table to identify **bottlenecks** (the prism with the largest gap between current maturity and the recommended minimum target).
-6. Reapply the assessment periodically (e.g., semi-annually) to track the index's evolution over time.
+Open `cybersecurity-maturity-framework.xlsx` in Excel, LibreOffice Calc, or Google Sheets, and go to the **`Assessment`** sheet (second tab). All data entry happens there.
+
+> **Note:** The **`Dashboard`** sheet (first tab) is **read-only** — it automatically displays the charts and consolidated final results.
+
+### Step 2 — Score the 16 criteria (Column F)
+
+On the `Assessment` sheet you'll find 16 rows of technical criteria split across the four prisms (Psychological, Organizational, Design, and Governance). For each criterion, go to **Column F (Score)** and enter a whole number from **1 to 5**, based on the organization's current maturity under the following parameters:
+
+| Score | Level | Description |
+|:---:|---|---|
+| **1** | Very Weak / Critical | The control is nonexistent, or there are severe security failures. |
+| **2** | Weak | The process is reactive (ad hoc), carried out only when incidents occur, and is undocumented. |
+| **3** | Intermediate | The control is partially implemented, formalized, and monitored at a basic level. |
+| **4** | Good | The process is fully implemented, integrated into the operational routine, and actively monitored. |
+| **5** | Leader / Resilient | The process is continuously optimized based on threat data (CTI), tested through simulations, and audited on a recurring basis. |
+
+> ⚠️ **Data validation:** Column F carries a data-validation rule — the spreadsheet automatically rejects any value that isn't a whole number from 1 to 5, preventing accidental entry errors.
+
+### Step 3 — Don't edit the formulas (Columns H, I, and J)
+
+As you enter scores in column F:
+
+- **Column H (Weighted Score)** dynamically calculates your score multiplied by the criterion's weight (Column G).
+- **Column J (Progress)** shows that individual criterion's percentage of compliance.
+
+Do not edit these columns — doing so breaks the underlying math.
+
+### Step 4 — Review the Executive Dashboard
+
+After scoring all 16 criteria on `Assessment`, go back to `Dashboard`. It instantly computes:
+
+- The **Overall Maturity Index ($I_{mat}$)** (cells `A5:B6`).
+- The **Maturity Category** (cells `C5:D6`): automatic classification into *Vulnerable/Critical*, *Reactive/Basic*, *Proactive/Managed*, or *Resilient/Optimized*.
+- The **Performance by Prism** table: shows which dimension is furthest from its recommended minimum target (Psychological, Organizational, Design, or Governance).
+- The **bar chart**: updates the current-performance columns against the established minimum targets, making it easy to visually present bottlenecks in reports or meetings.
+
+Reapply the assessment periodically (e.g., semi-annually) to track the index's evolution over time.
 
 > ⚠️ Do not edit columns `H`, `I`, and `J` — they contain formulas calculated automatically from the score (`F`) and the weight (`G`).
 

@@ -155,21 +155,47 @@ donde `sᵢ ∈ {1,...,5}` es la puntuación asignada al criterio *i* y `wᵢ` e
 
 ## 🚀 Cómo Usar
 
-1. **Abra** el archivo `framework-triaxial-madurez-ciberseguridad.xlsx` en Excel, LibreOffice Calc o Google Sheets.
-2. Vaya a la hoja **`Evaluación`**.
-3. Para cada uno de los 16 criterios (filas 5 a 20), complete la columna **`F` (Score)** con una puntuación de **1 a 5**, con base en la evidencia descrita en la columna `E`:
+Completar la hoja de cálculo es un proceso simple, práctico y totalmente automatizado. Toda la lógica de cálculo está protegida — usted solo necesita ingresar las puntuaciones de su evaluación.
 
-   | Puntuación | Significado |
-   |:---:|---|
-   | 1 | Muy débil / crítico — inexistente |
-   | 2 | Débil — ad hoc, no documentado |
-   | 3 | Intermedio — parcialmente implementado |
-   | 4 | Bueno — implementado y monitoreado |
-   | 5 | Líder / resiliente — optimizado y auditado |
+### Paso 1 — Acceda a la hoja de Evaluación
 
-4. Vuelva a la hoja **`Panel de Control`** — el **Índice General de Madurez**, la **categoría** y el **gráfico por prisma** se recalculan automáticamente.
-5. Use la tabla **"Performance by Prism"** para identificar los **cuellos de botella** (el prisma con la mayor brecha entre la madurez actual y la meta mínima recomendada).
-6. Reaplique la evaluación periódicamente (p. ej., semestralmente) para dar seguimiento a la evolución del índice en el tiempo.
+Abra `framework-triaxial-madurez-ciberseguridad.xlsx` en Excel, LibreOffice Calc o Google Sheets y vaya a la hoja **`Evaluación`** (segunda pestaña). Es allí donde realizará todo el ingreso de datos.
+
+> **Nota:** La primera pestaña, **`Panel de Control`**, es de **solo lectura** y muestra automáticamente los gráficos y resultados finales consolidados.
+
+### Paso 2 — Evalúe los 16 Criterios (Columna F)
+
+En la hoja `Evaluación` encontrará 16 filas de criterios técnicos divididas entre los cuatro prismas (Psicológico, Organizacional, Diseño y Gobernanza). Para cada criterio, vaya a la **Columna F (Puntuación)** e ingrese un número entero de **1 a 5**, según la madurez actual de la organización, bajo los siguientes parámetros:
+
+| Puntuación | Nivel | Descripción |
+|:---:|---|---|
+| **1** | Very Weak / Critical | El control es inexistente o existen fallas graves de seguridad. |
+| **2** | Weak | El proceso es reactivo (ad hoc), se realiza solo cuando ocurren incidentes y no está documentado. |
+| **3** | Intermediate | El control está parcialmente implementado, formalizado y monitoreado de forma básica. |
+| **4** | Good | El proceso está totalmente implementado, integrado a la rutina operativa y monitoreado activamente. |
+| **5** | Leader / Resilient | El proceso se optimiza continuamente con base en datos de amenazas (CTI), se prueba mediante simulaciones y se audita de forma recurrente. |
+
+> ⚠️ **Atención:** La columna F tiene una regla de Validación de Datos. La hoja de cálculo rechazará automáticamente cualquier valor que no sea un número entero entre 1 y 5, para evitar errores accidentales de entrada.
+
+### Paso 3 — No modifique las Fórmulas (Columnas H, I y J)
+
+A medida que ingresa las puntuaciones en la columna F:
+
+- La **Columna H (Puntuación Ponderada)** calculará dinámicamente la multiplicación de su puntuación por el peso de criticidad del criterio (Columna G).
+- La **Columna J (Progreso)** mostrará el porcentaje de cumplimiento de ese criterio individual.
+
+No edite estas columnas, para no romper los vínculos matemáticos.
+
+### Paso 4 — Analice el Panel Ejecutivo
+
+Después de completar los 16 criterios de la hoja `Evaluación`, vuelva a la hoja `Panel de Control`. Esta calculará de forma inmediata:
+
+- El **Índice General de Madurez ($I_{mat}$)** (celdas `A5:B6`).
+- La **Categoría de Madurez** (celdas `C5:D6`): clasificación automática entre *Vulnerable/Critical*, *Reactive/Basic*, *Proactive/Managed* o *Resilient/Optimized*.
+- La **Tabla de Desempeño por Prisma**: muestra en qué dimensión la organización está más alejada de la meta mínima recomendada (Psicológica, Organizacional, Diseño o Gobernanza).
+- El **Gráfico de Barras**: actualizará las columnas de desempeño actual frente a las metas mínimas establecidas, facilitando la presentación visual de los cuellos de botella en informes o reuniones.
+
+Reaplique la evaluación periódicamente (p. ej., semestralmente) para dar seguimiento a la evolución del índice en el tiempo.
 
 > ⚠️ No edite las columnas `H`, `I` ni `J` — contienen fórmulas calculadas automáticamente a partir de la puntuación (`F`) y el peso (`G`).
 

@@ -155,21 +155,47 @@ onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o pe
 
 ## 🚀 Como Usar
 
-1. **Abra** o arquivo `framework-triaxial-maturidade-ciberseguranca.xlsx` no Excel, LibreOffice Calc ou Google Sheets.
-2. Vá até a aba **`Avaliação`**.
-3. Para cada um dos 16 critérios (linhas 5 a 20), preencha a coluna **`F` (Score)** com uma nota de **1 a 5**, com base nas evidências descritas na coluna `E`:
+Preencher a planilha é um processo simples, prático e totalmente automatizado. Toda a lógica de cálculo está protegida — você só precisa inserir as notas da sua avaliação.
 
-   | Nota | Significado |
-   |:---:|---|
-   | 1 | Muito fraco / crítico — inexistente |
-   | 2 | Fraco — ad hoc, não documentado |
-   | 3 | Intermediário — parcialmente implementado |
-   | 4 | Bom — implementado e monitorado |
-   | 5 | Líder / resiliente — otimizado e auditado |
+### Passo 1 — Acesse a aba de Avaliação
 
-4. Volte para a aba **`Painel de Controle`** — o **Índice Geral de Maturidade**, a **categoria** e o **gráfico por prisma** são recalculados automaticamente.
-5. Use a tabela **"Performance by Prism"** para identificar os **gargalos** (o prisma com maior distância entre maturidade atual e meta mínima recomendada).
-6. Reaplique a avaliação periodicamente (ex.: semestral) para acompanhar a evolução do índice ao longo do tempo.
+Abra `framework-triaxial-maturidade-ciberseguranca.xlsx` no Excel, LibreOffice Calc ou Google Sheets e navegue até a aba **`Avaliação`** (segunda aba). É nela que você realizará todo o preenchimento de dados.
+
+> **Nota:** A primeira aba, **`Painel de Controle`**, é de **leitura exclusiva** e exibe os gráficos e resultados finais consolidados automaticamente.
+
+### Passo 2 — Avalie os 16 Critérios (Coluna F)
+
+Na aba `Avaliação` você verá 16 linhas de critérios técnicos divididas entre os quatro prismas (Psicológico, Organizacional, Design e Governança). Para cada critério, vá até a **Coluna F (Nota)** e insira uma nota inteira de **1 a 5**, de acordo com a maturidade atual da organização, sob os seguintes parâmetros:
+
+| Nota | Nível | Descrição |
+|:---:|---|---|
+| **1** | Very Weak / Critical | O controle é inexistente ou há falhas graves de segurança. |
+| **2** | Weak | O processo é reativo (ad hoc), feito apenas quando há incidentes e não é documentado. |
+| **3** | Intermediate | O controle está parcialmente implementado, formalizado e monitorado de forma básica. |
+| **4** | Good | O processo está totalmente implementado, integrado à rotina operacional e ativamente monitorado. |
+| **5** | Leader / Resilient | O processo é otimizado continuamente com base em dados de ameaças (CTI), testado sob simulações e auditado de forma recorrente. |
+
+> ⚠️ **Atenção:** A coluna F possui uma regra de Validação de Dados. A planilha rejeitará automaticamente qualquer valor que não seja um número inteiro entre 1 e 5, para evitar erros acidentais de preenchimento.
+
+### Passo 3 — Não altere as Fórmulas (Colunas H, I e J)
+
+À medida que você insere as notas na coluna F:
+
+- A **Coluna H (Pontuação Ponderada)** calculará dinamicamente a multiplicação da sua nota pelo peso de criticidade do critério (Coluna G).
+- A **Coluna J (Progresso)** mostrará o percentual de conformidade daquele critério individual.
+
+Não edite estas colunas, para não romper os vínculos matemáticos.
+
+### Passo 4 — Analise o Painel Executivo
+
+Após preencher os 16 critérios da aba `Avaliação`, volte para a aba `Painel de Controle`. Ela calculará de forma imediata:
+
+- O **Índice Geral de Maturidade ($I_{mat}$)** (células `A5:B6`).
+- A **Categoria de Maturidade** (células `C5:D6`): classificação automática entre *Vulnerable/Critical*, *Reactive/Basic*, *Proactive/Managed* ou *Resilient/Optimized*.
+- A **Tabela de Desempenho por Prisma**: exibe em qual dimensão a organização está mais distante da meta mínima recomendada (Psicológica, Organizacional, Design ou Governança).
+- O **Gráfico de Barras**: atualizará as colunas de desempenho atual contra as metas mínimas estabelecidas, para facilitar a apresentação visual dos gargalos em relatórios ou reuniões.
+
+Reaplique a avaliação periodicamente (ex.: semestral) para acompanhar a evolução do índice ao longo do tempo.
 
 > ⚠️ Não edite as colunas `H`, `I` e `J` — elas contêm fórmulas calculadas automaticamente a partir da nota (`F`) e do peso (`G`).
 
