@@ -57,7 +57,7 @@ A planilha possui **4 abas**:
 | Célula | Conteúdo | Fórmula |
 |---|---|---|
 | `A5:B6` | **Índice Geral de Maturidade** | `=Assessment!H21/Assessment!I21` |
-| `C5:D6` | **Categoria de Maturidade** (veredito dinâmico) | `=IF(A5<0.4,"Vulnerable/Critical", IF(A5<0.6,"Reactive/Basic", IF(A5<0.8,"Proactive/Managed","Resilient/Optimized")))` |
+| `C5:D6` | **Categoria de Maturidade** (veredito dinâmico) | `=IF(A5<0.4,"Vulnerable / Critical", IF(A5<0.6,"Reactive / Basic", IF(A5<0.8,"Proactive / Managed","Resilient / Optimized")))` |
 | `F4:I8` | Tabela de referência com a descrição de cada faixa de maturidade | estático |
 | `A9:C13` | **Desempenho por Prisma**, calculado via `SUMIF` sobre a aba `Assessment`, comparado à meta mínima recomendada por dimensão | `=SUMIF(Assessment!$B$5:$B$20, "<Prisma>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
 | — | Gráfico de colunas nativo comparando **maturidade atual vs. meta mínima** por prisma | Excel Chart |
@@ -82,7 +82,7 @@ A planilha possui **4 abas**:
 
 ### 3. `Independent_Assessment` (**"Avaliação_Independente"** na versão PT) — Avaliação Independente Multiavaliador *(novo na v1.0.1)*
 
-Cada um dos 3 coautores atribui nota a cada critério para **uma instituição diferente**, **de forma independente e antes de comparar as respostas**, com base em evidências reais do processo descrito pela pergunta orientadora, registrando a evidência observada ao lado da nota. Critérios que não possam ser avaliados com evidências reais ficam em branco.
+Cada um dos 3 avaliadores (coautores) atribui nota a cada critério **de forma independente e antes de comparar as respostas** — seja para **a mesma organização** (consenso) ou para **três organizações diferentes**, uma por avaliador (comparação; o modo é escolhido na aba `Painel_Dados_Reais`) — com base em evidências reais do processo descrito pela pergunta orientadora, registrando a evidência observada ao lado da nota. Critérios que não possam ser avaliados com evidências reais ficam em branco.
 
 | Coluna | Nome | Descrição |
 |---|---|---|
@@ -125,9 +125,9 @@ onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o pe
 | Faixa | Categoria | Significado |
 |---|---|---|
 | 🔴 `< 40%` | **Vulnerável / Crítico** | Alta exposição à manipulação e falhas graves de processo/design |
-| 🟠 `41% – 60%` | **Reativo / Básico** | Cumprimento burocrático de política formal de TI, baixo engajamento real |
-| 🟡 `61% – 80%` | **Proativo / Gerenciado** | Monitoramento ativo via inteligência e interfaces centradas no usuário |
-| 🟢 `81% – 100%` | **Resiliente / Otimizado** | Cultura de resiliência integrada, conformidade nativa, segurança *by design* |
+| 🟠 `40% – < 60%` | **Reativo / Básico** | Cumprimento burocrático de política formal de TI, baixo engajamento real |
+| 🟡 `60% – < 80%` | **Proativo / Gerenciado** | Monitoramento ativo via inteligência e interfaces centradas no usuário |
+| 🟢 `≥ 80%` | **Resiliente / Otimizado** | Cultura de resiliência integrada, conformidade nativa, segurança *by design* |
 
 ---
 
@@ -185,7 +185,7 @@ onde `sᵢ ∈ {1,...,5}` é a nota atribuída ao critério *i* e `wᵢ` é o pe
 
 ## 🚀 Como Usar
 
-Preencher a planilha é um processo simples, prático e totalmente automatizado. Toda a lógica de cálculo está protegida — você só precisa inserir as notas da sua avaliação.
+Preencher a planilha é um processo simples, prático e totalmente automatizado. Toda a lógica de cálculo já está pronta em fórmulas — você só precisa inserir as notas da sua avaliação (as abas não são protegidas por senha; apenas não edite as células com fórmulas).
 
 ### Passo 1 — Acesse a aba de Avaliação
 
@@ -221,13 +221,26 @@ Não edite estas colunas, para não romper os vínculos matemáticos.
 Após preencher os 16 critérios da aba `Avaliação`, volte para a aba `Painel de Controle`. Ela calculará de forma imediata:
 
 - O **Índice Geral de Maturidade ($I_{mat}$)** (células `A5:B6`).
-- A **Categoria de Maturidade** (células `C5:D6`): classificação automática entre *Vulnerable/Critical*, *Reactive/Basic*, *Proactive/Managed* ou *Resilient/Optimized*.
+- A **Categoria de Maturidade** (células `C5:D6`): classificação automática entre *Vulnerável / Crítico*, *Reativo / Básico*, *Proativo / Gerenciado* ou *Resiliente / Otimizado*.
 - A **Tabela de Desempenho por Prisma**: exibe em qual dimensão a organização está mais distante da meta mínima recomendada (Psicológica, Organizacional, Design ou Governança).
 - O **Gráfico de Barras**: atualizará as colunas de desempenho atual contra as metas mínimas estabelecidas, para facilitar a apresentação visual dos gargalos em relatórios ou reuniões.
 
 Reaplique a avaliação periodicamente (ex.: semestral) para acompanhar a evolução do índice ao longo do tempo.
 
 > ⚠️ Não edite as colunas `H`, `I` e `J` — elas contêm fórmulas calculadas automaticamente a partir da nota (`F`) e do peso (`G`).
+
+### Passo 5 — (Opcional) Avaliação independente multiavaliador
+
+Para reduzir o viés de um único avaliador, use a aba **`Avaliação_Independente`** (terceira aba). Cada um dos três avaliadores preenche **apenas as suas próprias colunas** — nota (`F`, `H` ou `J`, número inteiro de 1 a 5 ou em branco) e a evidência/justificativa correspondente (`G`, `I` ou `K`) — orientado pela pergunta da coluna `D`, **antes de comparar as respostas**. As colunas `L`–`N`, os totais (linhas 21–22) e a tabela por organização (linhas 25–30) são calculados automaticamente.
+
+### Passo 6 — Analise o `Painel_Dados_Reais`
+
+Na aba **`Painel_Dados_Reais`** (quarta aba), escolha o modo na célula **`B4`**:
+
+- **`Mesma Organização (Consenso)`** — os três avaliadores avaliaram a mesma organização; o Bloco 1 mostra o índice de consenso (média das três notas) e o índice por prisma frente à meta mínima.
+- **`Organizações Diferentes (Comparação)`** — cada avaliador avaliou uma organização diferente; o Bloco 2 mostra lado a lado o índice, a categoria e o índice por prisma das Org. A, B e C.
+
+O gráfico **Maturidade por Prisma (modo selecionado)** acompanha automaticamente o modo escolhido.
 
 ---
 

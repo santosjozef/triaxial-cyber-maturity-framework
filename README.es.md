@@ -57,7 +57,7 @@ El libro tiene **4 hojas**:
 | Celda | Contenido | Fórmula |
 |---|---|---|
 | `A5:B6` | **Índice General de Madurez** | `=Assessment!H21/Assessment!I21` |
-| `C5:D6` | **Categoría de Madurez** (veredicto dinámico) | `=IF(A5<0.4,"Vulnerable/Critical", IF(A5<0.6,"Reactive/Basic", IF(A5<0.8,"Proactive/Managed","Resilient/Optimized")))` |
+| `C5:D6` | **Categoría de Madurez** (veredicto dinámico) | `=IF(A5<0.4,"Vulnerable / Critical", IF(A5<0.6,"Reactive / Basic", IF(A5<0.8,"Proactive / Managed","Resilient / Optimized")))` |
 | `F4:I8` | Tabla de referencia con la descripción de cada franja de madurez | estático |
 | `A9:C13` | **Desempeño por Prisma**, calculado mediante `SUMIF` sobre la hoja `Assessment`, comparado con la meta mínima recomendada por dimensión | `=SUMIF(Assessment!$B$5:$B$20, "<Prisma>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
 | — | Gráfico de columnas nativo que compara la **madurez actual vs. meta mínima** por prisma | Excel Chart |
@@ -78,11 +78,11 @@ El libro tiene **4 hojas**:
 | J | Progress | `=H/I` (% de madurez del criterio) |
 | 21 | **TOTALS & AVERAGES** | `F21=AVERAGE(F5:F20)` · `G21=SUM(G5:G20)` · `H21=SUM(H5:H20)` · `I21=SUM(I5:I20)` · `J21=H21/I21` |
 
-> 🔒 **Validación de datos:** el rango `F5:F20` acepta **únicamente números enteros del 1 al 5**. Cualquier otro valor es rechazado por la regla `dataValidation` incorporada en la hoja, con el mensaje *"La puntuación introducida debe ser un número entero del 1 al 5."*
+> 🔒 **Validación de datos:** el rango `F5:F20` acepta **únicamente números enteros del 1 al 5**. Cualquier otro valor es rechazado por la regla `dataValidation` incorporada en la hoja, con el mensaje *"La puntuación ingresada debe ser un número entero de 1 a 5."*
 
 ### 3. `Independent_Assessment` (**"Evaluación_Independiente"** en la versión ES) — Evaluación Independiente Multievaluador *(nuevo en v1.0.1)*
 
-Cada uno de los 3 coautores puntúa cada criterio para **una institución diferente**, **de forma independiente y antes de comparar las respuestas**, con base en evidencias reales del proceso descrito por la pregunta orientadora, registrando la evidencia observada junto a la puntuación. Los criterios que no puedan evaluarse con evidencias reales se dejan en blanco.
+Cada uno de los 3 evaluadores (coautores) puntúa cada criterio **de forma independiente y antes de comparar las respuestas** — ya sea para **la misma organización** (consenso) o para **tres organizaciones diferentes**, una por evaluador (comparación; el modo se elige en la hoja `Panel_Datos_Reales`) — con base en evidencias reales del proceso descrito por la pregunta orientadora, registrando la evidencia observada junto a la puntuación. Los criterios que no puedan evaluarse con evidencias reales se dejan en blanco.
 
 | Columna | Nombre | Descripción |
 |---|---|---|
@@ -125,9 +125,9 @@ donde `sᵢ ∈ {1,...,5}` es la puntuación asignada al criterio *i* y `wᵢ` e
 | Franja | Categoría | Significado |
 |---|---|---|
 | 🔴 `< 40%` | **Vulnerable / Crítico** | Alta exposición a la manipulación y fallos graves de proceso/diseño |
-| 🟠 `41% – 60%` | **Reactivo / Básico** | Cumplimiento burocrático de política formal de TI, bajo compromiso real |
-| 🟡 `61% – 80%` | **Proactivo / Gestionado** | Monitoreo activo mediante inteligencia e interfaces centradas en el usuario |
-| 🟢 `81% – 100%` | **Resiliente / Optimizado** | Cultura de resiliencia integrada, cumplimiento nativo, seguridad *by design* |
+| 🟠 `40% – < 60%` | **Reactivo / Básico** | Cumplimiento burocrático de política formal de TI, bajo compromiso real |
+| 🟡 `60% – < 80%` | **Proactivo / Gestionado** | Monitoreo activo mediante inteligencia e interfaces centradas en el usuario |
+| 🟢 `≥ 80%` | **Resiliente / Optimizado** | Cultura de resiliencia integrada, cumplimiento nativo, seguridad *by design* |
 
 ---
 
@@ -185,7 +185,7 @@ donde `sᵢ ∈ {1,...,5}` es la puntuación asignada al criterio *i* y `wᵢ` e
 
 ## 🚀 Cómo Usar
 
-Completar la hoja de cálculo es un proceso simple, práctico y totalmente automatizado. Toda la lógica de cálculo está protegida — usted solo necesita ingresar las puntuaciones de su evaluación.
+Completar la hoja de cálculo es un proceso simple, práctico y totalmente automatizado. Toda la lógica de cálculo ya está incorporada en fórmulas — usted solo necesita ingresar las puntuaciones de su evaluación (las hojas no están protegidas con contraseña; simplemente no edite las celdas con fórmulas).
 
 ### Paso 1 — Acceda a la hoja de Evaluación
 
@@ -221,13 +221,26 @@ No edite estas columnas, para no romper los vínculos matemáticos.
 Después de completar los 16 criterios de la hoja `Evaluación`, vuelva a la hoja `Panel de Control`. Esta calculará de forma inmediata:
 
 - El **Índice General de Madurez ($I_{mat}$)** (celdas `A5:B6`).
-- La **Categoría de Madurez** (celdas `C5:D6`): clasificación automática entre *Vulnerable/Critical*, *Reactive/Basic*, *Proactive/Managed* o *Resilient/Optimized*.
+- La **Categoría de Madurez** (celdas `C5:D6`): clasificación automática entre *Vulnerable / Crítico*, *Reactivo / Básico*, *Proactivo / Gestionado* o *Resiliente / Optimizado*.
 - La **Tabla de Desempeño por Prisma**: muestra en qué dimensión la organización está más alejada de la meta mínima recomendada (Psicológica, Organizacional, Diseño o Gobernanza).
 - El **Gráfico de Barras**: actualizará las columnas de desempeño actual frente a las metas mínimas establecidas, facilitando la presentación visual de los cuellos de botella en informes o reuniones.
 
 Reaplique la evaluación periódicamente (p. ej., semestralmente) para dar seguimiento a la evolución del índice en el tiempo.
 
 > ⚠️ No edite las columnas `H`, `I` ni `J` — contienen fórmulas calculadas automáticamente a partir de la puntuación (`F`) y el peso (`G`).
+
+### Paso 5 — (Opcional) Evaluación independiente multievaluador
+
+Para reducir el sesgo de un único evaluador, use la hoja **`Evaluación_Independiente`** (tercera pestaña). Cada uno de los tres evaluadores completa **solo sus propias columnas** — puntuación (`F`, `H` o `J`, número entero de 1 a 5 o en blanco) y la evidencia/justificación correspondiente (`G`, `I` o `K`) — guiado por la pregunta de la columna `D`, **antes de comparar las respuestas**. Las columnas `L`–`N`, los totales (filas 21–22) y la tabla por organización (filas 25–30) se calculan automáticamente.
+
+### Paso 6 — Analice el `Panel_Datos_Reales`
+
+En la hoja **`Panel_Datos_Reales`** (cuarta pestaña), elija el modo en la celda **`B4`**:
+
+- **`Misma Organización (Consenso)`** — los tres evaluadores evaluaron la misma organización; el Bloque 1 muestra el índice de consenso (media de las tres puntuaciones) y el índice por prisma frente a la meta mínima.
+- **`Organizaciones Diferentes (Comparación)`** — cada evaluador evaluó una organización diferente; el Bloque 2 muestra lado a lado el índice, la categoría y el índice por prisma de las Org. A, B y C.
+
+El gráfico **Madurez por Prisma (modo seleccionado)** sigue automáticamente el modo elegido.
 
 ---
 

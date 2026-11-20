@@ -55,7 +55,7 @@ The workbook has **4 sheets**:
 | Cell | Content | Formula |
 |---|---|---|
 | `A5:B6` | **Overall Maturity Index** | `=Assessment!H21/Assessment!I21` |
-| `C5:D6` | **Maturity Category** (dynamic verdict) | `=IF(A5<0.4,"Vulnerable/Critical", IF(A5<0.6,"Reactive/Basic", IF(A5<0.8,"Proactive/Managed","Resilient/Optimized")))` |
+| `C5:D6` | **Maturity Category** (dynamic verdict) | `=IF(A5<0.4,"Vulnerable / Critical", IF(A5<0.6,"Reactive / Basic", IF(A5<0.8,"Proactive / Managed","Resilient / Optimized")))` |
 | `F4:I8` | Reference table describing each maturity band | static |
 | `A9:C13` | **Performance by Prism**, computed via `SUMIF` over the `Assessment` sheet, compared against the recommended minimum target per dimension | `=SUMIF(Assessment!$B$5:$B$20, "<Prism>", Assessment!$H$5:$H$20) / SUMIF(...!$I$5:$I$20)` |
 | — | Native column chart comparing **current maturity vs. minimum target** per prism | Excel Chart |
@@ -80,7 +80,7 @@ The workbook has **4 sheets**:
 
 ### 3. `Independent_Assessment` — Independent Multi-Rater Assessment *(new in v1.0.1)*
 
-Each of the 3 co-authors scores every criterion for **a different institution**, **independently and before comparing answers**, based on real evidence of the process described by the guiding question, and records the observed evidence next to the score. Criteria that cannot be assessed with real evidence are left blank.
+Each of the 3 raters (co-authors) scores every criterion **independently and before comparing answers** — either for **the same organization** (consensus) or for **three different organizations**, one per rater (comparison; the mode is chosen in `Control_Panel`) — based on real evidence of the process described by the guiding question, and records the observed evidence next to the score. Criteria that cannot be assessed with real evidence are left blank.
 
 | Column | Name | Description |
 |---|---|---|
@@ -123,9 +123,9 @@ where `sᵢ ∈ {1,...,5}` is the score assigned to criterion *i* and `wᵢ` is 
 | Band | Category | Meaning |
 |---|---|---|
 | 🔴 `< 40%` | **Vulnerable / Critical** | High exposure to manipulation and severe process/design failures |
-| 🟠 `41% – 60%` | **Reactive / Basic** | Bureaucratic compliance with formal IT policy, low real engagement |
-| 🟡 `61% – 80%` | **Proactive / Managed** | Active monitoring via intelligence and user-centered interfaces |
-| 🟢 `81% – 100%` | **Resilient / Optimized** | Integrated resilience culture, native compliance, security by design |
+| 🟠 `40% – < 60%` | **Reactive / Basic** | Bureaucratic compliance with formal IT policy, low real engagement |
+| 🟡 `60% – < 80%` | **Proactive / Managed** | Active monitoring via intelligence and user-centered interfaces |
+| 🟢 `≥ 80%` | **Resilient / Optimized** | Integrated resilience culture, native compliance, security by design |
 
 ---
 
@@ -183,7 +183,7 @@ where `sᵢ ∈ {1,...,5}` is the score assigned to criterion *i* and `wᵢ` is 
 
 ## 🚀 How to Use
 
-Filling in the workbook is simple, practical, and fully automated. All calculation logic is protected, so you only need to enter your assessment scores.
+Filling in the workbook is simple, practical, and fully automated. All calculation logic is already built into formulas, so you only need to enter your assessment scores (the sheets are not password-protected — just don't edit the formula cells).
 
 ### Step 1 — Open the `Assessment` sheet
 
@@ -226,6 +226,19 @@ After scoring all 16 criteria on `Assessment`, go back to `Dashboard`. It instan
 Reapply the assessment periodically (e.g., semi-annually) to track the index's evolution over time.
 
 > ⚠️ Do not edit columns `H`, `I`, and `J` — they contain formulas calculated automatically from the score (`F`) and the weight (`G`).
+
+### Step 5 — (Optional) Independent multi-rater assessment
+
+To reduce single-assessor bias, use the **`Independent_Assessment`** sheet (third tab). Each of the three raters fills in **only their own columns** — score (`F`, `H` or `J`, whole number 1–5 or blank) and the matching evidence/justification (`G`, `I` or `K`) — guided by the question in column `D`, **before comparing answers**. Columns `L`–`N`, the totals (rows 21–22), and the per-organization table (rows 25–30) are calculated automatically.
+
+### Step 6 — Review the real-data `Control_Panel`
+
+In the **`Control_Panel`** sheet (fourth tab), pick the mode in cell **`B4`**:
+
+- **`Same Organization (Consensus)`** — the three raters assessed the same organization; Block 1 shows the consensus index (mean of the three scores) and the per-prism index against the minimum target.
+- **`Different Organizations (Comparison)`** — each rater assessed a different organization; Block 2 shows the index, category, and per-prism index of Org. A, B, and C side by side.
+
+The chart **Maturity by Prism (selected mode)** follows the chosen mode automatically.
 
 ---
 
