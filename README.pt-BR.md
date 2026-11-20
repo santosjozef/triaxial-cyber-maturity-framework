@@ -2,7 +2,7 @@
 
 <p align="left">
   <img alt="Status" src="https://img.shields.io/badge/status-ativo-2ea44f?style=flat">
-  <img alt="Versão" src="https://img.shields.io/badge/versão-v1.0-blue?style=flat">
+  <img alt="Versão" src="https://img.shields.io/badge/versão-v1.0.3-blue?style=flat">
   <img alt="Licença" src="https://img.shields.io/badge/licença-uso%20acadêmico-lightgrey?style=flat">
   <img alt="Formato" src="https://img.shields.io/badge/formato-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
   <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.21986801.svg"></a>
@@ -50,7 +50,7 @@ Este repositório disponibiliza a planilha **[`framework-triaxial-maturidade-cib
 
 > As tabelas abaixo usam os nomes técnicos originais das abas/colunas (`Dashboard`, `Assessment`) para facilitar a referência cruzada com fórmulas e a versão em inglês. Na planilha traduzida `framework-triaxial-maturidade-ciberseguranca.xlsx`, essas abas se chamam **`Painel de Controle`** e **`Avaliação`**, com todos os cabeçalhos, critérios e mensagens de validação em português.
 
-A planilha possui **2 abas**:
+A planilha possui **4 abas**:
 
 ### 1. `Dashboard` (**"Painel de Controle"** na versão PT) — Painel Executivo
 
@@ -79,6 +79,36 @@ A planilha possui **2 abas**:
 | 21 | **TOTALS & AVERAGES** | `F21=AVERAGE(F5:F20)` · `G21=SUM(G5:G20)` · `H21=SUM(H5:H20)` · `I21=SUM(I5:I20)` · `J21=H21/I21` |
 
 > 🔒 **Validação de dados:** o intervalo `F5:F20` aceita **somente números inteiros de 1 a 5**. Qualquer outro valor é rejeitado pela regra `dataValidation` embutida na planilha, com a mensagem *"A nota inserida deve ser um número inteiro de 1 a 5."*
+
+### 3. `Independent_Assessment` (**"Avaliação_Independente"** na versão PT) — Avaliação Independente Multiavaliador *(novo na v1.0.1)*
+
+Cada um dos 3 coautores atribui nota a cada critério para **uma instituição diferente**, **de forma independente e antes de comparar as respostas**, com base em evidências reais do processo descrito pela pergunta orientadora, registrando a evidência observada ao lado da nota. Critérios que não possam ser avaliados com evidências reais ficam em branco.
+
+| Coluna | Nome | Descrição |
+|---|---|---|
+| A–C | ID · Prisma · Critério | Os mesmos 16 critérios da aba `Avaliação` |
+| D | Pergunta Orientadora (o que verificar) | Qual evidência o avaliador deve buscar |
+| E | Peso (w_i) | Os mesmos pesos da aba `Avaliação` |
+| **F, H, J** | **Nota – Avaliador 1/2/3** | 🔵 Editável — número inteiro de 1 a 5 ou em branco |
+| **G, I, K** | **Evidência/Justificativa – Avaliador 1/2/3** | 🔵 Editável — o que foi efetivamente observado (sem dados pessoais de usuários finais) |
+| L | Nota Média | `=IF(COUNT(F,H,J)=0,"",AVERAGE(F,H,J))` |
+| M | Amplitude (Máx−Mín) | `=MAX(F,H,J)-MIN(F,H,J)` — como cada avaliador avaliou uma instituição diferente, uma amplitude grande reflete heterogeneidade real entre instituições (um achado em si), e não divergência entre avaliadores a ser resolvida |
+| N | Nota Média Ponderada | `=L*E` |
+| 21 | **TOTAIS** | `E21=SUM(E5:E20)` · `L21`/`M21` = médias das notas médias e das amplitudes |
+| 22 | **Índice de Maturidade Multiavaliador (I_mat, %)** | `N22=SUM(N5:N20)/(5*E21)*100` |
+| 25–30 | **Índice de Maturidade por Organização** *(novo na v1.0.2)* | `D27:D29` = índice ponderado de cada organização (Org. A/B/C), desconsiderando critérios em branco: `=SUMPRODUCT(F5:F20,$E$5:$E$20)/(5*SUMPRODUCT(--(F5:F20<>""),$E$5:$E$20))*100` · `E27:E29` = categoria de maturidade · `D30` = média entre organizações (apenas referência) |
+
+### 4. `Control_Panel` (**"Painel_Dados_Reais"** na versão PT) — Painel de Controle com Dados Reais *(novo na v1.0.3)*
+
+Um seletor de modo na célula **`B4`** (lista suspensa) define como os dados da aba `Avaliação_Independente` são lidos. Apenas o bloco correspondente ao modo selecionado exibe números; o outro mostra `—` e fica acinzentado por formatação condicional.
+
+| Intervalo | Conteúdo |
+|---|---|
+| `B4` | **Modo de avaliação** — `Mesma Organização (Consenso)` ou `Organizações Diferentes (Comparação)` |
+| `A6:C14` | **Bloco 1 — Consenso** (mesma organização, três avaliadores): índice geral `B7 = Avaliação_Independente!N22`, categoria e índice por prisma calculado a partir da coluna *Nota Média* (L), comparado à meta mínima desejada |
+| `A16:D25` | **Bloco 2 — Comparação** (três organizações diferentes, um avaliador cada): índice geral e categoria das Org. A/B/C (`Avaliação_Independente!D27:D29`) e índice por prisma calculado a partir da coluna de nota de cada avaliador (F, H, J) |
+| `H20:K25` | Dados do gráfico (automático — segue o modo em `B4`) |
+| — | Gráfico de colunas nativo **Maturidade por Prisma (modo selecionado)** |
 
 ---
 
@@ -210,9 +240,9 @@ O framework opera­cionaliza, entre outros, os seguintes modelos citados no arti
 - **17 fatores humanos em cibersegurança** (Rohan et al., 2021) — fundamentam os critérios do prisma Psicológico.
 - **NIST SP 800-53 Rev. 5** e **LGPD (Lei nº 13.709/2018)** — fundamentam o quarto prisma de Governança.
 
-## 🔬 Rigor Científico, Escopo e Trabalhos Futuros (v1.0)
+## 🔬 Rigor Científico, Escopo e Trabalhos Futuros (v1.0.3)
 
-Este framework foi projetado seguindo um processo metodológico rigoroso de síntese da literatura de fatores humanos em cibersegurança. Como um projeto científico de código aberto (Open Science) em sua versão inicial (v1.0), seu escopo de aplicação está delimitado pelos seguintes parâmetros acadêmicos, os quais já estão sendo endereçados em nosso roadmap de pesquisa:
+Este framework foi projetado seguindo um processo metodológico rigoroso de síntese da literatura de fatores humanos em cibersegurança. Como um projeto científico de código aberto (Open Science) em sua versão inicial (v1.0.3), seu escopo de aplicação está delimitado pelos seguintes parâmetros acadêmicos, os quais já estão sendo endereçados em nosso roadmap de pesquisa:
 
 1. **Validação e Calibração de Pesos**: A atribuição atual de pesos ($w_i$) reflete a síntese qualitativa e teórica dos autores baseada na literatura revisada. Testes empíricos em larga escala e painéis de especialistas (Método Delphi) estão planejados para refinamento e calibração estatística desses coeficientes.
 2. **Representatividade da Literatura**: A base conceitual do framework priorizou periódicos e conferências internacionais indexadas de alta relevância (predominantemente de escopo ocidental). Expansões futuras mapearão nuances culturais e comportamentais específicas de infraestruturas críticas do Sul Global.

@@ -2,7 +2,7 @@
 
 <p align="left">
   <img alt="Status" src="https://img.shields.io/badge/status-active-2ea44f?style=flat">
-  <img alt="Version" src="https://img.shields.io/badge/version-v1.0-blue?style=flat">
+  <img alt="Version" src="https://img.shields.io/badge/version-v1.0.3-blue?style=flat">
   <img alt="License" src="https://img.shields.io/badge/license-academic%20use-lightgrey?style=flat">
   <img alt="Format" src="https://img.shields.io/badge/format-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
   <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.21986801.svg"></a>
@@ -48,7 +48,7 @@ This repository provides the spreadsheet **`cybersecurity-maturity-framework.xls
 
 ## 🗂️ Spreadsheet Structure
 
-The workbook has **2 sheets**:
+The workbook has **4 sheets**:
 
 ### 1. `Dashboard` — Executive Panel
 
@@ -77,6 +77,36 @@ The workbook has **2 sheets**:
 | 21 | **TOTALS & AVERAGES** | `F21=AVERAGE(F5:F20)` · `G21=SUM(G5:G20)` · `H21=SUM(H5:H20)` · `I21=SUM(I5:I20)` · `J21=H21/I21` |
 
 > 🔒 **Data validation:** the range `F5:F20` accepts **only whole numbers from 1 to 5**. Any other value is rejected by the built-in `dataValidation` rule, with the message *"The entered score must be a whole number from 1 to 5."*
+
+### 3. `Independent_Assessment` — Independent Multi-Rater Assessment *(new in v1.0.1)*
+
+Each of the 3 co-authors scores every criterion for **a different institution**, **independently and before comparing answers**, based on real evidence of the process described by the guiding question, and records the observed evidence next to the score. Criteria that cannot be assessed with real evidence are left blank.
+
+| Column | Name | Description |
+|---|---|---|
+| A–C | ID · Prism · Criterion | Same 16 criteria as `Assessment` |
+| D | Guiding Question (what to check) | What evidence the rater must look for |
+| E | Weight (w_i) | Same weights as `Assessment` |
+| **F, H, J** | **Score – Rater 1/2/3** | 🔵 Editable — whole number 1–5 or blank |
+| **G, I, K** | **Evidence/Justification – Rater 1/2/3** | 🔵 Editable — what was actually observed (no end-user personal data) |
+| L | Mean Score | `=IF(COUNT(F,H,J)=0,"",AVERAGE(F,H,J))` |
+| M | Range (Max−Min) | `=MAX(F,H,J)-MIN(F,H,J)` — since each rater assessed a different institution, a large range reflects real cross-institutional heterogeneity (a finding in itself), not rater disagreement to be resolved |
+| N | Weighted Mean Score | `=L*E` |
+| 21 | **TOTALS** | `E21=SUM(E5:E20)` · `L21`/`M21` = averages of the mean scores and ranges |
+| 22 | **Multi-rater Maturity Index (I_mat, %)** | `N22=SUM(N5:N20)/(5*E21)*100` |
+| 25–30 | **Per-Organization Maturity Index** *(new in v1.0.2)* | `D27:D29` = weighted index of each organization (Org. A/B/C), ignoring blank criteria: `=SUMPRODUCT(F5:F20,$E$5:$E$20)/(5*SUMPRODUCT(--(F5:F20<>""),$E$5:$E$20))*100` · `E27:E29` = maturity category · `D30` = cross-organizational mean (reference only) |
+
+### 4. `Control_Panel` — Real-Data Control Panel *(new in v1.0.3)*
+
+A mode switch in cell **`B4`** (drop-down list) selects how the `Independent_Assessment` data is read. Only the block matching the selected mode shows numbers; the other shows `—` and is greyed out by conditional formatting.
+
+| Range | Content |
+|---|---|
+| `B4` | **Assessment mode** — `Same Organization (Consensus)` or `Different Organizations (Comparison)` |
+| `A6:C14` | **Block 1 — Consensus** (same organization, three raters): overall index `B7 = Independent_Assessment!N22`, category, and per-prism index computed from the *Mean Score* column (L), against the minimum desired target |
+| `A16:D25` | **Block 2 — Comparison** (three different organizations, one rater each): overall index and category of Org. A/B/C (`Independent_Assessment!D27:D29`) and per-prism index computed from each rater's score column (F, H, J) |
+| `H20:K25` | Chart data (automatic — follows the mode in `B4`) |
+| — | Native column chart **Maturity by Prism (selected mode)** |
 
 ---
 
@@ -208,9 +238,9 @@ The framework operationalizes, among others, the following models cited in the o
 - **17 human factors in cybersecurity** (Rohan et al., 2021) — underpin the criteria of the Psychological prism.
 - **NIST SP 800-53 Rev. 5** and **LGPD (Law No. 13.709/2018)** — underpin the fourth, Governance prism.
 
-## 🔬 Scientific Rigor, Scope, and Future Work (v1.0)
+## 🔬 Scientific Rigor, Scope, and Future Work (v1.0.3)
 
-This framework was designed through a rigorous methodological synthesis of the human-factors-in-cybersecurity literature. As an Open Science project in its initial version (v1.0), its scope of application is bounded by the following academic parameters, which are already being addressed on our research roadmap:
+This framework was designed through a rigorous methodological synthesis of the human-factors-in-cybersecurity literature. As an Open Science project in its initial version (v1.0.3), its scope of application is bounded by the following academic parameters, which are already being addressed on our research roadmap:
 
 1. **Weight Validation and Calibration**: The current assignment of weights ($w_i$) reflects the authors' qualitative and theoretical synthesis based on the reviewed literature. Large-scale empirical testing and expert panels (Delphi Method) are planned to refine and statistically calibrate these coefficients.
 2. **Literature Representativeness**: The framework's conceptual foundation prioritized high-relevance, indexed international journals and conferences (predominantly Western in scope). Future expansions will map the cultural and behavioral nuances specific to critical infrastructure in the Global South.

@@ -2,7 +2,7 @@
 
 <p align="left">
   <img alt="Estado" src="https://img.shields.io/badge/estado-activo-2ea44f?style=flat">
-  <img alt="Versión" src="https://img.shields.io/badge/versión-v1.0-blue?style=flat">
+  <img alt="Versión" src="https://img.shields.io/badge/versión-v1.0.3-blue?style=flat">
   <img alt="Licencia" src="https://img.shields.io/badge/licencia-uso%20académico-lightgrey?style=flat">
   <img alt="Formato" src="https://img.shields.io/badge/formato-.xlsx-217346?style=flat&logo=microsoftexcel&logoColor=white">
   <a href="https://doi.org/10.5281/zenodo.21986801"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.21986801.svg"></a>
@@ -50,7 +50,7 @@ Este repositorio pone a disposición la hoja de cálculo **[`framework-triaxial-
 
 > Las tablas siguientes usan los nombres técnicos originales de las hojas/columnas (`Dashboard`, `Assessment`) para facilitar la referencia cruzada con las fórmulas y la versión en inglés. En la hoja de cálculo traducida `framework-triaxial-madurez-ciberseguridad.xlsx`, esas hojas se llaman **`Panel de Control`** y **`Evaluación`**, con todos los encabezados, criterios y mensajes de validación en español.
 
-El libro tiene **2 hojas**:
+El libro tiene **4 hojas**:
 
 ### 1. `Dashboard` (**"Panel de Control"** en la versión ES) — Panel Ejecutivo
 
@@ -79,6 +79,36 @@ El libro tiene **2 hojas**:
 | 21 | **TOTALS & AVERAGES** | `F21=AVERAGE(F5:F20)` · `G21=SUM(G5:G20)` · `H21=SUM(H5:H20)` · `I21=SUM(I5:I20)` · `J21=H21/I21` |
 
 > 🔒 **Validación de datos:** el rango `F5:F20` acepta **únicamente números enteros del 1 al 5**. Cualquier otro valor es rechazado por la regla `dataValidation` incorporada en la hoja, con el mensaje *"La puntuación introducida debe ser un número entero del 1 al 5."*
+
+### 3. `Independent_Assessment` (**"Evaluación_Independiente"** en la versión ES) — Evaluación Independiente Multievaluador *(nuevo en v1.0.1)*
+
+Cada uno de los 3 coautores puntúa cada criterio para **una institución diferente**, **de forma independiente y antes de comparar las respuestas**, con base en evidencias reales del proceso descrito por la pregunta orientadora, registrando la evidencia observada junto a la puntuación. Los criterios que no puedan evaluarse con evidencias reales se dejan en blanco.
+
+| Columna | Nombre | Descripción |
+|---|---|---|
+| A–C | ID · Prisma · Criterio | Los mismos 16 criterios de la hoja `Evaluación` |
+| D | Pregunta Orientadora (qué verificar) | Qué evidencia debe buscar el evaluador |
+| E | Peso (w_i) | Los mismos pesos de la hoja `Evaluación` |
+| **F, H, J** | **Puntuación – Evaluador 1/2/3** | 🔵 Editable — número entero de 1 a 5 o en blanco |
+| **G, I, K** | **Evidencia/Justificación – Evaluador 1/2/3** | 🔵 Editable — lo que se observó efectivamente (sin datos personales de usuarios finales) |
+| L | Puntuación Media | `=IF(COUNT(F,H,J)=0,"",AVERAGE(F,H,J))` |
+| M | Rango (Máx−Mín) | `=MAX(F,H,J)-MIN(F,H,J)` — como cada evaluador evaluó una institución diferente, un rango grande refleja heterogeneidad real entre instituciones (un hallazgo en sí mismo), y no un desacuerdo entre evaluadores que deba resolverse |
+| N | Puntuación Media Ponderada | `=L*E` |
+| 21 | **TOTALES** | `E21=SUM(E5:E20)` · `L21`/`M21` = promedios de las puntuaciones medias y de los rangos |
+| 22 | **Índice de Madurez Multievaluador (I_mat, %)** | `N22=SUM(N5:N20)/(5*E21)*100` |
+| 25–30 | **Índice de Madurez por Organización** *(nuevo en v1.0.2)* | `D27:D29` = índice ponderado de cada organización (Org. A/B/C), sin considerar los criterios en blanco: `=SUMPRODUCT(F5:F20,$E$5:$E$20)/(5*SUMPRODUCT(--(F5:F20<>""),$E$5:$E$20))*100` · `E27:E29` = categoría de madurez · `D30` = media entre organizaciones (solo referencia) |
+
+### 4. `Control_Panel` (**"Panel_Datos_Reales"** en la versión ES) — Panel de Control con Datos Reales *(nuevo en v1.0.3)*
+
+Un selector de modo en la celda **`B4`** (lista desplegable) define cómo se leen los datos de la hoja `Evaluación_Independiente`. Solo el bloque correspondiente al modo seleccionado muestra números; el otro muestra `—` y queda atenuado en gris mediante formato condicional.
+
+| Rango | Contenido |
+|---|---|
+| `B4` | **Modo de evaluación** — `Misma Organización (Consenso)` u `Organizaciones Diferentes (Comparación)` |
+| `A6:C14` | **Bloque 1 — Consenso** (misma organización, tres evaluadores): índice general `B7 = Evaluación_Independiente!N22`, categoría e índice por prisma calculado a partir de la columna *Puntuación Media* (L), comparado con la meta mínima deseada |
+| `A16:D25` | **Bloque 2 — Comparación** (tres organizaciones diferentes, un evaluador cada una): índice general y categoría de las Org. A/B/C (`Evaluación_Independiente!D27:D29`) e índice por prisma calculado a partir de la columna de puntuación de cada evaluador (F, H, J) |
+| `H20:K25` | Datos del gráfico (automático — sigue el modo en `B4`) |
+| — | Gráfico de columnas nativo **Madurez por Prisma (modo seleccionado)** |
 
 ---
 
@@ -210,9 +240,9 @@ El framework operacionaliza, entre otros, los siguientes modelos citados en el a
 - **17 factores humanos en ciberseguridad** (Rohan et al., 2021) — fundamentan los criterios del prisma Psicológico.
 - **NIST SP 800-53 Rev. 5** y **LGPD (Ley n.º 13.709/2018)** — fundamentan el cuarto prisma de Gobernanza.
 
-## 🔬 Rigor Científico, Alcance y Trabajo Futuro (v1.0)
+## 🔬 Rigor Científico, Alcance y Trabajo Futuro (v1.0.3)
 
-Este framework fue diseñado siguiendo un proceso metodológico riguroso de síntesis de la literatura sobre factores humanos en ciberseguridad. Como un proyecto científico de código abierto (Open Science) en su versión inicial (v1.0), su alcance de aplicación está delimitado por los siguientes parámetros académicos, los cuales ya están siendo abordados en nuestra hoja de ruta de investigación:
+Este framework fue diseñado siguiendo un proceso metodológico riguroso de síntesis de la literatura sobre factores humanos en ciberseguridad. Como un proyecto científico de código abierto (Open Science) en su versión inicial (v1.0.3), su alcance de aplicación está delimitado por los siguientes parámetros académicos, los cuales ya están siendo abordados en nuestra hoja de ruta de investigación:
 
 1. **Validación y Calibración de Pesos**: La asignación actual de pesos ($w_i$) refleja la síntesis cualitativa y teórica de los autores basada en la literatura revisada. Se planean pruebas empíricas a gran escala y paneles de expertos (Método Delphi) para refinar y calibrar estadísticamente estos coeficientes.
 2. **Representatividad de la Literatura**: La base conceptual del framework priorizó revistas y conferencias internacionales indexadas de alta relevancia (predominantemente de alcance occidental). Futuras expansiones mapearán matices culturales y de comportamiento específicos de infraestructuras críticas del Sur Global.

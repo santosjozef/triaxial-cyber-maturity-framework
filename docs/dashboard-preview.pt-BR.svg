@@ -16,7 +16,7 @@
 
   <!-- Badge card -->
   <rect x="690" y="86" width="240" height="110" rx="10" fill="#FFF7ED" stroke="#FED7AA"/>
-  <text x="710" y="112" font-size="12" font-weight="700" fill="#C2410C" letter-spacing="0.5">v1.0</text>
+  <text x="710" y="112" font-size="12" font-weight="700" fill="#C2410C" letter-spacing="0.5">v1.0.3</text>
   <text x="710" y="138" font-size="12.5" fill="#9A3412">16 critérios · 4 prismas</text>
   <text x="710" y="158" font-size="12.5" fill="#9A3412">escala 1–5</text>
   <text x="710" y="178" font-size="12.5" fill="#9A3412">NIST 800-53 · LGPD</text>
